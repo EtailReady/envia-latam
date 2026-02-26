@@ -276,12 +276,12 @@ export const BOX_SIZES = [
 ];
 
 export const AFFILIATES = [
-  { name: 'Amazon',  url: 'https://amazon.com', icon: '📦', color: '#FF9900', desc: 'Millones de productos. Envía a tu courier favorito.' },
-  { name: 'Walmart', url: 'https://walmart.com', icon: '🏪', color: '#0071CE', desc: 'Precios bajos todos los días.' },
-  { name: 'Target',  url: 'https://target.com',  icon: '🎯', color: '#CC0000', desc: 'Moda, hogar, electrónicos y más.' },
-  { name: 'eBay',    url: 'https://ebay.com',    icon: '🛍️', color: '#E53238', desc: 'Nuevos y usados. Las mejores ofertas.' },
-  { name: 'Shein',   url: 'https://shein.com',   icon: '👗', color: '#000000', desc: 'Moda a precios increíbles.' },
-  { name: 'Temu',    url: 'https://temu.com',    icon: '💰', color: '#FB5C00', desc: 'Todo lo que necesitas a bajo costo.' },
+  { name: 'Amazon',  url: 'https://amazon.com', color: '#FF9900', desc: 'Millones de productos. Envía a tu courier favorito.' },
+  { name: 'Walmart', url: 'https://walmart.com', color: '#0071CE', desc: 'Precios bajos todos los días.' },
+  { name: 'Target',  url: 'https://target.com',  color: '#CC0000', desc: 'Moda, hogar, electrónicos y más.' },
+  { name: 'eBay',    url: 'https://ebay.com',    color: '#E53238', desc: 'Nuevos y usados. Las mejores ofertas.' },
+  { name: 'Shein',   url: 'https://shein.com',   color: '#000000', desc: 'Moda a precios increíbles.' },
+  { name: 'Temu',    url: 'https://temu.com',    color: '#FB5C00', desc: 'Todo lo que necesitas a bajo costo.' },
 ];
 
 // Helper: get courier by slug

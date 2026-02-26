@@ -1,6 +1,7 @@
 import { searchCouriers, getCountry, COUNTRIES, FROM_CITIES } from '@/lib/data';
 import CourierCard from '@/components/CourierCard';
 import SearchBar from '@/components/SearchBar';
+import { Search } from 'lucide-react';
 
 export default async function SearchPage({ searchParams }: { searchParams: Promise<{ from?: string; to?: string }> }) {
   const { from: rawFrom, to: rawTo } = await searchParams;
@@ -38,7 +39,7 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
         <div className="container">
           {results.length === 0 ? (
             <div style={{ textAlign: 'center', padding: '80px 0' }}>
-              <div style={{ fontSize: '3rem', marginBottom: '16px' }}>🔍</div>
+              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '16px' }}><Search size={48} color="var(--muted)" strokeWidth={1.25} /></div>
               <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: 'var(--dark)', marginBottom: '8px' }}>No encontramos couriers</h2>
               <p style={{ color: 'var(--muted)', marginBottom: '24px' }}>Intenta con otra ciudad o destino, o busca todos los couriers disponibles.</p>
               <a href="/search" className="btn-primary">Ver todos los couriers</a>

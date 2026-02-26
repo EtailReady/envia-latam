@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { AFFILIATES, BOX_SIZES } from '@/lib/data';
+import { ShoppingCart, Search, Package, ShoppingBag, Plane, Home, Ruler } from 'lucide-react';
 
 export default function MarketplacePage() {
   return (
@@ -7,7 +8,7 @@ export default function MarketplacePage() {
       {/* Hero */}
       <section style={{ background: 'linear-gradient(135deg, #0D1B2A, #364CD0)', padding: '64px 0 56px' }}>
         <div className="container" style={{ textAlign: 'center' }}>
-          <div style={{ fontSize: '3rem', marginBottom: '16px' }}>🛒</div>
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '16px' }}><ShoppingCart size={48} color="white" strokeWidth={1.25} /></div>
           <h1 style={{ fontSize: 'clamp(1.8rem,4vw,2.8rem)', fontWeight: 800, color: 'white', marginBottom: '14px' }}>
             Compra en USA, envía a Latinoamérica
           </h1>
@@ -22,16 +23,16 @@ export default function MarketplacePage() {
         <div className="container">
           <h2 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--dark)', marginBottom: '32px', textAlign: 'center' }}>¿Cómo funciona?</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '24px', maxWidth: '900px', margin: '0 auto' }}>
-            {[
-              { n: '1', icon: '🔍', t: 'Busca tu courier', d: 'Usa Envia Latam para encontrar un courier confiable en tu ciudad que envíe al país destino.' },
-              { n: '2', icon: '📬', t: 'Obtén su dirección', d: 'El courier te da una dirección en USA para recibir tus compras en su almacén.' },
-              { n: '3', icon: '🛍️', t: 'Compra online', d: 'Ordena desde Amazon, Walmart, Target, Shein o cualquier tienda. Envía a la dirección del courier.' },
-              { n: '4', icon: '✈️', t: 'El courier envía', d: 'El courier consolida tus paquetes y los envía a Latinoamérica.' },
-              { n: '5', icon: '🏠', t: 'Tu familia recibe', d: 'Entrega puerta a puerta donde sea que estén.' },
-            ].map(s => (
+            {([
+              { n: '1', Icon: Search,      t: 'Busca tu courier',   d: 'Usa Envia Latam para encontrar un courier confiable en tu ciudad que envíe al país destino.' },
+              { n: '2', Icon: Package,     t: 'Obtén su dirección', d: 'El courier te da una dirección en USA para recibir tus compras en su almacén.' },
+              { n: '3', Icon: ShoppingBag, t: 'Compra online',      d: 'Ordena desde Amazon, Walmart, Target, Shein o cualquier tienda. Envía a la dirección del courier.' },
+              { n: '4', Icon: Plane,       t: 'El courier envía',   d: 'El courier consolida tus paquetes y los envía a Latinoamérica.' },
+              { n: '5', Icon: Home,        t: 'Tu familia recibe',  d: 'Entrega puerta a puerta donde sea que estén.' },
+            ] as const).map(s => (
               <div key={s.n} style={{ textAlign: 'center', padding: '24px 16px', background: 'var(--bg)', borderRadius: '12px', border: '1px solid var(--border)' }}>
                 <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--brand)', color: 'white', fontWeight: 800, display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 12px', fontSize: '1rem' }}>{s.n}</div>
-                <div style={{ fontSize: '1.5rem', marginBottom: '8px' }}>{s.icon}</div>
+                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '8px' }}><s.Icon size={26} color="var(--brand)" strokeWidth={1.5} /></div>
                 <div style={{ fontWeight: 700, color: 'var(--dark)', marginBottom: '6px', fontSize: '0.9rem' }}>{s.t}</div>
                 <div style={{ fontSize: '0.8rem', color: 'var(--muted)', lineHeight: 1.6 }}>{s.d}</div>
               </div>
@@ -48,7 +49,9 @@ export default function MarketplacePage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '16px', maxWidth: '960px', margin: '0 auto' }}>
             {AFFILIATES.map(a => (
               <a key={a.name} href={a.url} target="_blank" rel="noopener noreferrer" className="store-card">
-                <span style={{ fontSize: '2.2rem' }}>{a.icon}</span>
+                <div style={{ width: '44px', height: '44px', borderRadius: '10px', background: a.color, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <ShoppingBag size={20} color="white" strokeWidth={1.75} />
+                </div>
                 <div>
                   <div style={{ fontWeight: 700, color: 'var(--dark)', marginBottom: '2px' }}>{a.name}</div>
                   <div style={{ fontSize: '0.78rem', color: 'var(--muted)' }}>{a.desc}</div>
@@ -71,7 +74,7 @@ export default function MarketplacePage() {
                   <div style={{ fontWeight: 800, fontSize: '1.1rem', color: 'var(--dark)' }}>{b.size}</div>
                   <span style={{ background: 'var(--brand-light)', color: 'var(--brand)', padding: '3px 10px', borderRadius: '6px', fontSize: '0.75rem', fontWeight: 600 }}>{b.maxWeight}</span>
                 </div>
-                <div style={{ fontSize: '0.82rem', color: 'var(--brand)', fontWeight: 500, marginBottom: '6px' }}>📏 {b.dimensions}</div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '5px', fontSize: '0.82rem', color: 'var(--brand)', fontWeight: 500, marginBottom: '6px' }}><Ruler size={12} /> {b.dimensions}</div>
                 <div style={{ fontSize: '0.8rem', color: 'var(--muted)', fontStyle: 'italic' }}>Ej: {b.example}</div>
               </div>
             ))}

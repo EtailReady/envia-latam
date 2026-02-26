@@ -1,11 +1,13 @@
+'use client';
 import Link from 'next/link';
+import { Building2, MapPin, Star, Car, Package, FileText, ShoppingBag } from 'lucide-react';
 import { type Courier, getCountry } from '@/lib/data';
 
 function Stars({ rating }: { rating: number }) {
   return (
-    <span className="stars">
+    <span style={{ display: 'inline-flex', gap: '2px' }}>
       {[1,2,3,4,5].map(i => (
-        <span key={i} style={{ color: i <= Math.round(rating) ? '#EDC31D' : '#D1D5DB' }}>★</span>
+        <Star key={i} size={13} strokeWidth={0} fill={i <= Math.round(rating) ? '#EDC31D' : '#D1D5DB'} />
       ))}
     </span>
   );
@@ -16,8 +18,8 @@ export default function CourierCard({ courier }: { courier: Courier }) {
     <Link href={`/courier/${courier.slug}`} className={`courier-card${courier.featured ? ' featured' : ''}`}>
       {/* Featured banner */}
       {courier.featured && (
-        <div style={{ background: 'linear-gradient(90deg, #EDC31D, #C9A318)', padding: '5px 14px', fontSize: '0.7rem', fontWeight: 700, color: 'var(--dark)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-          ⭐ Destacado
+        <div style={{ background: 'linear-gradient(90deg, #EDC31D, #C9A318)', padding: '5px 14px', fontSize: '0.7rem', fontWeight: 700, color: 'var(--dark)', letterSpacing: '0.08em', textTransform: 'uppercase', display: 'flex', alignItems: 'center', gap: '5px' }}>
+          <Star size={11} fill="var(--dark)" strokeWidth={0} /> Destacado
         </div>
       )}
 
@@ -28,9 +30,9 @@ export default function CourierCard({ courier }: { courier: Courier }) {
           <div style={{
             width: '52px', height: '52px', borderRadius: '10px', flexShrink: 0,
             background: 'var(--brand-light)', display: 'flex', alignItems: 'center', justifyContent: 'center',
-            fontSize: '1.4rem', border: '1px solid var(--border)',
+            border: '1px solid var(--border)',
           }}>
-            📦
+            <Building2 size={24} color="var(--brand)" strokeWidth={1.5} />
           </div>
           <div style={{ flex: 1, minWidth: 0 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '3px' }}>
@@ -74,8 +76,8 @@ export default function CourierCard({ courier }: { courier: Courier }) {
           <div style={{ fontSize: '0.72rem', color: 'var(--muted)', fontWeight: 500, marginBottom: '6px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Sale desde:</div>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
             {courier.fromCities.map(city => (
-              <span key={city} style={{ background: 'var(--brand-light)', color: 'var(--brand)', borderRadius: '6px', padding: '3px 8px', fontSize: '0.78rem', fontWeight: 500 }}>
-                📍 {city}
+              <span key={city} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', background: 'var(--brand-light)', color: 'var(--brand)', borderRadius: '6px', padding: '3px 8px', fontSize: '0.78rem', fontWeight: 500 }}>
+                <MapPin size={10} strokeWidth={2.5} /> {city}
               </span>
             ))}
           </div>
@@ -83,11 +85,11 @@ export default function CourierCard({ courier }: { courier: Courier }) {
 
         {/* Services row */}
         <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', paddingTop: '12px', borderTop: '1px solid var(--border)' }}>
-          {courier.acceptsVehicles    && <span style={{ fontSize: '0.72rem', color: 'var(--muted)', background: 'var(--bg)', padding: '3px 8px', borderRadius: '4px' }}>🚗 Vehículos</span>}
-          {courier.acceptsMerchandise && <span style={{ fontSize: '0.72rem', color: 'var(--muted)', background: 'var(--bg)', padding: '3px 8px', borderRadius: '4px' }}>📦 Mercancía</span>}
-          {courier.acceptsDocuments   && <span style={{ fontSize: '0.72rem', color: 'var(--muted)', background: 'var(--bg)', padding: '3px 8px', borderRadius: '4px' }}>📄 Documentos</span>}
+          {courier.acceptsVehicles    && <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', fontSize: '0.72rem', color: 'var(--muted)', background: 'var(--bg)', padding: '3px 8px', borderRadius: '4px' }}><Car size={11} strokeWidth={1.75} /> Vehículos</span>}
+          {courier.acceptsMerchandise && <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', fontSize: '0.72rem', color: 'var(--muted)', background: 'var(--bg)', padding: '3px 8px', borderRadius: '4px' }}><Package size={11} strokeWidth={1.75} /> Mercancía</span>}
+          {courier.acceptsDocuments   && <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', fontSize: '0.72rem', color: 'var(--muted)', background: 'var(--bg)', padding: '3px 8px', borderRadius: '4px' }}><FileText size={11} strokeWidth={1.75} /> Documentos</span>}
           {courier.services.some(s => s.toLowerCase().includes('amazon')) && (
-            <span style={{ fontSize: '0.72rem', color: '#FF9900', background: '#FFF9F0', padding: '3px 8px', borderRadius: '4px', fontWeight: 500 }}>📦 Recibe Amazon</span>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', fontSize: '0.72rem', color: '#FF9900', background: '#FFF9F0', padding: '3px 8px', borderRadius: '4px', fontWeight: 500 }}><ShoppingBag size={11} strokeWidth={1.75} /> Recibe Amazon</span>
           )}
         </div>
       </div>
