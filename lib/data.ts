@@ -13,6 +13,12 @@ export type Route = {
   notes?: string;
 };
 
+export type Office = {
+  city: string;
+  state?: string;      // 'FL', 'TX', 'NY' — US offices only
+  countryCode: string; // 'us', 've', 'co', etc.
+};
+
 export type Courier = {
   id: string;
   slug: string;
@@ -27,6 +33,7 @@ export type Courier = {
   featured: boolean;
   fromCities: string[];
   toCountries: string[];
+  offices?: Office[];
   routes: Route[];
   services: string[];
   address: string;
@@ -90,6 +97,12 @@ export const COURIERS: Courier[] = [
     featured: true,
     fromCities: ['Miami, FL', 'Orlando, FL'],
     toCountries: ['ve', 'co', 'do', 'pa'],
+    offices: [
+      { city: 'Miami',   state: 'FL', countryCode: 'us' },
+      { city: 'Orlando', state: 'FL', countryCode: 'us' },
+      { city: 'Caracas',      countryCode: 've' },
+      { city: 'Barranquilla', countryCode: 'co' },
+    ],
     routes: [
       { country: 've', pricePerLb: 3.50, minDays: 7,  maxDays: 14, notes: 'Servicio aéreo' },
       { country: 'co', pricePerLb: 2.80, minDays: 5,  maxDays: 10 },
@@ -122,6 +135,12 @@ export const COURIERS: Courier[] = [
     featured: true,
     fromCities: ['Miami, FL', 'New York, NY'],
     toCountries: ['ve', 'co', 'ec', 'pe', 'bo'],
+    offices: [
+      { city: 'Miami',    state: 'FL', countryCode: 'us' },
+      { city: 'New York', state: 'NY', countryCode: 'us' },
+      { city: 'Caracas',  countryCode: 've' },
+      { city: 'Guayaquil',countryCode: 'ec' },
+    ],
     routes: [
       { country: 've', pricePerLb: 3.75, minDays: 8,  maxDays: 15 },
       { country: 'co', pricePerLb: 3.00, minDays: 6,  maxDays: 12 },
@@ -154,6 +173,13 @@ export const COURIERS: Courier[] = [
     featured: false,
     fromCities: ['Houston, TX', 'Dallas, TX'],
     toCountries: ['mx', 've', 'co', 'gt', 'sv', 'hn'],
+    offices: [
+      { city: 'Houston', state: 'TX', countryCode: 'us' },
+      { city: 'Dallas',  state: 'TX', countryCode: 'us' },
+      { city: 'Miami',   state: 'FL', countryCode: 'us' },
+      { city: 'Maracaibo',    countryCode: 've' },
+      { city: 'Ciudad de México', countryCode: 'mx' },
+    ],
     routes: [
       { country: 'mx', pricePerLb: 1.80, minDays: 3,  maxDays: 7 },
       { country: 've', pricePerLb: 3.90, minDays: 9,  maxDays: 16 },
@@ -187,6 +213,14 @@ export const COURIERS: Courier[] = [
     featured: true,
     fromCities: ['Miami, FL', 'Orlando, FL', 'Atlanta, GA'],
     toCountries: ['ve', 'do', 'pa', 'pr'],
+    offices: [
+      { city: 'Miami',   state: 'FL', countryCode: 'us' },
+      { city: 'Orlando', state: 'FL', countryCode: 'us' },
+      { city: 'Atlanta', state: 'GA', countryCode: 'us' },
+      { city: 'Houston', state: 'TX', countryCode: 'us' },
+      { city: 'Maracaibo',    countryCode: 've' },
+      { city: 'Santo Domingo',countryCode: 'do' },
+    ],
     routes: [
       { country: 've', pricePerLb: 3.25, minDays: 6,  maxDays: 12, notes: 'Mejor precio garantizado' },
       { country: 'do', pricePerLb: 2.00, minDays: 3,  maxDays: 6 },
@@ -218,6 +252,12 @@ export const COURIERS: Courier[] = [
     featured: false,
     fromCities: ['New York, NY', 'Boston, MA'],
     toCountries: ['ve', 'co', 'pe', 'es', 'pt', 'do'],
+    offices: [
+      { city: 'New York', state: 'NY', countryCode: 'us' },
+      { city: 'Boston',   state: 'MA', countryCode: 'us' },
+      { city: 'Caracas',  countryCode: 've' },
+      { city: 'Madrid',   countryCode: 'es' },
+    ],
     routes: [
       { country: 've', pricePerLb: 4.00, minDays: 9,  maxDays: 17 },
       { country: 'co', pricePerLb: 3.50, minDays: 7,  maxDays: 14 },
@@ -249,6 +289,12 @@ export const COURIERS: Courier[] = [
     featured: false,
     fromCities: ['Miami, FL', 'Los Angeles, CA'],
     toCountries: ['ar', 'cl', 'uy', 'br', 'pe', 'bo'],
+    offices: [
+      { city: 'Miami',       state: 'FL', countryCode: 'us' },
+      { city: 'Los Angeles', state: 'CA', countryCode: 'us' },
+      { city: 'Buenos Aires',countryCode: 'ar' },
+      { city: 'Santiago',    countryCode: 'cl' },
+    ],
     routes: [
       { country: 'ar', pricePerLb: 4.50, minDays: 10, maxDays: 18 },
       { country: 'cl', pricePerLb: 4.20, minDays: 9,  maxDays: 16 },
@@ -308,4 +354,13 @@ export function getCountry(code: string): Country | undefined {
 // Helper: get featured couriers
 export function getFeaturedCouriers(): Courier[] {
   return COURIERS.filter(c => c.featured);
+}
+
+// Helper: flag + short name for office country codes (includes US)
+const OFFICE_META: Record<string, { flag: string; name: string }> = {
+  us: { flag: '🇺🇸', name: 'EE.UU.' },
+  ...Object.fromEntries(COUNTRIES.map(c => [c.code, { flag: c.flag, name: c.nameEs }])),
+};
+export function getOfficeCountry(code: string) {
+  return OFFICE_META[code.toLowerCase()] ?? { flag: '🌐', name: code.toUpperCase() };
 }

@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { getCourierBySlug, getCountry } from '@/lib/data';
+import { getCourierBySlug, getCountry, getOfficeCountry } from '@/lib/data';
 import { Building2, MessageCircle, Phone, Globe, Mail, MapPin, Package, Star, ChevronLeft } from 'lucide-react';
 
 function Stars({ rating }: { rating: number }) {
@@ -71,6 +71,54 @@ export default async function CourierPage({ params }: { params: Promise<{ slug: 
                 <h2 style={{ fontSize: '1.2rem', fontWeight: 700, color: 'var(--dark)', marginBottom: '14px' }}>Sobre {courier.name}</h2>
                 <p style={{ color: 'var(--body)', lineHeight: 1.8, fontSize: '0.95rem' }}>{courier.description}</p>
               </div>
+
+              {/* Offices / Locations */}
+              {courier.offices && courier.offices.length > 0 && (() => {
+                const usOffices   = courier.offices!.filter(o => o.countryCode === 'us');
+                const latamOffices = courier.offices!.filter(o => o.countryCode !== 'us');
+                return (
+                  <div style={{ marginBottom: '40px' }}>
+                    <h2 style={{ fontSize: '1.2rem', fontWeight: 700, color: 'var(--dark)', marginBottom: '18px' }}>Nuestras Ubicaciones</h2>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '14px' }}>
+                      {usOffices.length > 0 && (
+                        <div style={{ background: 'var(--brand-light)', borderRadius: '12px', padding: '16px 18px' }}>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
+                            <span style={{ fontSize: '1.2rem' }}>🇺🇸</span>
+                            <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--brand)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Almacenes en USA</span>
+                          </div>
+                          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                            {usOffices.map(o => (
+                              <div key={`${o.city}-us`} style={{ display: 'flex', alignItems: 'center', gap: '7px', fontSize: '0.88rem', color: 'var(--dark)', fontWeight: 500 }}>
+                                <MapPin size={13} color="var(--brand)" strokeWidth={2} />
+                                {o.city}{o.state ? `, ${o.state}` : ''}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                      {latamOffices.length > 0 && (
+                        <div style={{ background: 'var(--bg)', border: '1px solid var(--border)', borderRadius: '12px', padding: '16px 18px' }}>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
+                            <span style={{ fontSize: '1.1rem' }}>📍</span>
+                            <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Entrega en Destino</span>
+                          </div>
+                          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                            {latamOffices.map(o => {
+                              const meta = getOfficeCountry(o.countryCode);
+                              return (
+                                <div key={`${o.city}-${o.countryCode}`} style={{ display: 'flex', alignItems: 'center', gap: '7px', fontSize: '0.88rem', color: 'var(--dark)', fontWeight: 500 }}>
+                                  <span>{meta.flag}</span>
+                                  <span>{o.city}, {meta.name}</span>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                );
+              })()}
 
               {/* Rates table */}
               <div style={{ marginBottom: '40px' }}>

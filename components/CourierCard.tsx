@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { Building2, MapPin, Star, Car, Package, FileText, ShoppingBag } from 'lucide-react';
-import { type Courier, getCountry } from '@/lib/data';
+import { type Courier, getCountry, getOfficeCountry } from '@/lib/data';
 
 function Stars({ rating }: { rating: number }) {
   return (
@@ -71,17 +71,30 @@ export default function CourierCard({ courier }: { courier: Courier }) {
           </div>
         </div>
 
-        {/* From cities */}
-        <div style={{ marginBottom: '14px' }}>
-          <div style={{ fontSize: '0.72rem', color: 'var(--muted)', fontWeight: 500, marginBottom: '6px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Sale desde:</div>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
-            {courier.fromCities.map(city => (
-              <span key={city} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', background: 'var(--brand-light)', color: 'var(--brand)', borderRadius: '6px', padding: '3px 8px', fontSize: '0.78rem', fontWeight: 500 }}>
-                <MapPin size={10} strokeWidth={2.5} /> {city}
-              </span>
-            ))}
+        {/* Offices */}
+        {courier.offices && courier.offices.length > 0 && (
+          <div style={{ marginBottom: '14px' }}>
+            <div style={{ fontSize: '0.72rem', color: 'var(--muted)', fontWeight: 500, marginBottom: '6px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Oficinas:</div>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+              {courier.offices.map(o => {
+                const meta = getOfficeCountry(o.countryCode);
+                const isUS = o.countryCode === 'us';
+                return (
+                  <span key={`${o.city}-${o.countryCode}`} style={{
+                    display: 'inline-flex', alignItems: 'center', gap: '4px',
+                    background: isUS ? 'var(--brand-light)' : 'var(--bg)',
+                    color: isUS ? 'var(--brand)' : 'var(--body)',
+                    border: `1px solid ${isUS ? 'transparent' : 'var(--border)'}`,
+                    borderRadius: '6px', padding: '3px 8px', fontSize: '0.78rem', fontWeight: 500,
+                  }}>
+                    <span>{meta.flag}</span>
+                    <span>{o.city}{o.state ? `, ${o.state}` : ''}</span>
+                  </span>
+                );
+              })}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Services row */}
         <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', paddingTop: '12px', borderTop: '1px solid var(--border)' }}>
