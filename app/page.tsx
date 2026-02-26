@@ -85,25 +85,48 @@ export default function HomePage() {
       {/* ── COUNTRIES GRID ── */}
       <section className="section" style={{ background: 'var(--bg)' }}>
         <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '48px' }}>
             <div style={{ fontSize: '0.78rem', fontWeight: 600, color: 'var(--brand)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '8px' }}>Destinos</div>
             <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 800, color: 'var(--dark)', marginBottom: '8px' }}>¿A dónde quieres enviar?</h2>
-            <p style={{ color: 'var(--muted)', fontSize: '0.95rem' }}>Selecciona un país para ver todos los couriers disponibles</p>
+            <p style={{ color: 'var(--muted)', fontSize: '0.95rem' }}>Cubrimos 3 continentes — selecciona un país para ver los couriers disponibles</p>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '14px' }}>
-            {COUNTRIES.map(c => (
-              <Link key={c.code} href={`/paises/${c.code}`} className="country-photo-card">
-                <img src={c.photo} alt={c.nameEs} loading="lazy" />
-                <div className="cp-overlay" />
-                <div className="cp-label">
-                  <span className={`fi fi-${c.code}`} style={{ width: '22px', height: '16px', borderRadius: '3px', flexShrink: 0, display: 'inline-block' }} />
-                  <div>
-                    <div style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.65)', fontWeight: 600, letterSpacing: '0.1em', lineHeight: 1 }}>{c.code.toUpperCase()}</div>
-                    <div className="cp-name">{c.nameEs}</div>
-                  </div>
+
+          {([
+            { key: 'latam',  label: 'América Latina', emoji: '🌎' },
+            { key: 'europa', label: 'Europa',          emoji: '🌍' },
+            { key: 'asia',   label: 'Asia y Medio Oriente', emoji: '🌏' },
+          ] as const).map(region => {
+            const regionCountries = COUNTRIES.filter(c => c.region === region.key);
+            return (
+              <div key={region.key} style={{ marginBottom: '48px' }}>
+                {/* Continent divider */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
+                  <span style={{ fontSize: '1.2rem' }}>{region.emoji}</span>
+                  <span style={{ fontSize: '0.88rem', fontWeight: 800, color: 'var(--dark)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>{region.label}</span>
+                  <div style={{ flex: 1, height: '1px', background: 'var(--border)' }} />
+                  <span style={{ fontSize: '0.72rem', color: 'var(--muted)', fontWeight: 600 }}>{regionCountries.length} países</span>
                 </div>
-              </Link>
-            ))}
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))', gap: '12px' }}>
+                  {regionCountries.map(c => (
+                    <Link key={c.code} href={`/paises/${c.code}`} className="country-photo-card">
+                      <img src={c.photo} alt={c.nameEs} loading="lazy" />
+                      <div className="cp-overlay" />
+                      <div className="cp-label">
+                        <span className={`fi fi-${c.code}`} style={{ width: '22px', height: '16px', borderRadius: '3px', flexShrink: 0, display: 'inline-block' }} />
+                        <div>
+                          <div style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.65)', fontWeight: 600, letterSpacing: '0.1em', lineHeight: 1 }}>{c.code.toUpperCase()}</div>
+                          <div className="cp-name">{c.nameEs}</div>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+
+          <div style={{ textAlign: 'center', marginTop: '8px' }}>
+            <Link href="/paises" className="btn-outline" style={{ fontSize: '0.85rem' }}>Ver todos los destinos →</Link>
           </div>
         </div>
       </section>
