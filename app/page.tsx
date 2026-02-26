@@ -17,13 +17,13 @@ export default function HomePage() {
 
         <div className="container" style={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '20px', padding: '6px 16px', marginBottom: '28px' }}>
-            <Plane size={14} color="#FFED29" />
-            <span style={{ fontSize: '0.8rem', color: '#FFED29', fontWeight: 500 }}>El directorio #1 de couriers USA → Latinoamérica</span>
+            <Plane size={14} color="#EFBF04" />
+            <span style={{ fontSize: '0.8rem', color: '#EFBF04', fontWeight: 500 }}>El directorio #1 de couriers USA → Latinoamérica</span>
           </div>
 
           <h1 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.8rem)', fontWeight: 800, color: 'white', lineHeight: 1.1, marginBottom: '20px', letterSpacing: '-0.02em' }}>
             Encuentra couriers confiables<br />
-            <span style={{ color: '#FFED29' }}>para enviar a Latinoamérica</span>
+            <span style={{ color: '#EFBF04' }}>para enviar a Latinoamérica</span>
           </h1>
 
           <p style={{ fontSize: 'clamp(1rem, 2vw, 1.2rem)', color: 'rgba(255,255,255,0.75)', maxWidth: '560px', margin: '0 auto 48px', lineHeight: 1.7 }}>
@@ -134,8 +134,8 @@ export default function HomePage() {
       <section className="section" style={{ background: 'linear-gradient(135deg, #0D1B2A, #364CD0)' }}>
         <div className="container" style={{ textAlign: 'center' }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '20px', padding: '6px 16px', marginBottom: '24px' }}>
-            <ShoppingCart size={14} color="#FFED29" />
-            <span style={{ fontSize: '0.8rem', color: '#FFED29', fontWeight: 500 }}>Compra en USA, envía a Latinoamérica</span>
+            <ShoppingCart size={14} color="#EFBF04" />
+            <span style={{ fontSize: '0.8rem', color: '#EFBF04', fontWeight: 500 }}>Compra en USA, envía a Latinoamérica</span>
           </div>
           <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', fontWeight: 800, color: 'white', marginBottom: '12px' }}>
             Compra online y envía con tu courier

@@ -7,7 +7,7 @@ function Stars({ rating }: { rating: number }) {
   return (
     <span style={{ display: 'inline-flex', gap: '2px' }}>
       {[1,2,3,4,5].map(i => (
-        <Star key={i} size={13} strokeWidth={0} fill={i <= Math.round(rating) ? '#FFED29' : '#D1D5DB'} />
+        <Star key={i} size={13} strokeWidth={0} fill={i <= Math.round(rating) ? '#EFBF04' : '#D1D5DB'} />
       ))}
     </span>
   );
@@ -18,7 +18,7 @@ export default function CourierCard({ courier }: { courier: Courier }) {
     <Link href={`/courier/${courier.slug}`} className={`courier-card${courier.featured ? ' featured' : ''}`}>
       {/* Featured banner */}
       {courier.featured && (
-        <div style={{ background: 'linear-gradient(90deg, #FFED29, #D9C71A)', padding: '5px 14px', fontSize: '0.7rem', fontWeight: 700, color: 'var(--dark)', letterSpacing: '0.08em', textTransform: 'uppercase', display: 'flex', alignItems: 'center', gap: '5px' }}>
+        <div style={{ background: 'linear-gradient(90deg, #EFBF04, #C9A203)', padding: '5px 14px', fontSize: '0.7rem', fontWeight: 700, color: 'var(--dark)', letterSpacing: '0.08em', textTransform: 'uppercase', display: 'flex', alignItems: 'center', gap: '5px' }}>
           <Star size={11} fill="var(--dark)" strokeWidth={0} /> Destacado
         </div>
       )}

@@ -7,7 +7,7 @@ function Stars({ rating }: { rating: number }) {
   return (
     <span style={{ display: 'inline-flex', gap: '3px' }}>
       {[1,2,3,4,5].map(i => (
-        <Star key={i} size={16} strokeWidth={0} fill={i <= Math.round(rating) ? '#FFED29' : '#D1D5DB'} />
+        <Star key={i} size={16} strokeWidth={0} fill={i <= Math.round(rating) ? '#EFBF04' : '#D1D5DB'} />
       ))}
     </span>
   );
