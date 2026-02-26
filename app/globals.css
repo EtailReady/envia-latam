@@ -4,8 +4,8 @@
   --brand:       #364CD0;
   --brand-dark:  #2A3BA8;
   --brand-light: #ECEEFF;
-  --accent:      #EDC31D;
-  --accent-dark: #C9A318;
+  --accent:      #FFED29;
+  --accent-dark: #D9C71A;
   --dark:        #0D1B2A;
   --body:        #374151;
   --muted:       #6B7280;
@@ -51,7 +51,7 @@ body { background: var(--white); color: var(--dark); font-family: var(--font-int
 .btn-outline:hover { background: var(--brand); color: white; }
 
 /* Stars */
-.stars { color: #EDC31D; font-size: 0.85rem; }
+.stars { color: #FFED29; font-size: 0.85rem; }
 
 /* Badges */
 .badge-verified {
