@@ -7,20 +7,32 @@ const isPublicPortalRoute = createRouteMatcher([
   '/portal/sign-up(.*)',
 ]);
 
-export default clerkMiddleware(async (auth, req) => {
-  // Protect all portal routes except sign-in/sign-up
+const clerkConfigured =
+  process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY?.startsWith('pk_') &&
+  !process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY?.includes('REPLACE_ME');
+
+// If Clerk keys aren't set, just inject the portal header and move on
+function fallbackMiddleware(req: Request) {
+  const requestHeaders = new Headers(req.headers);
+  const url = new URL(req.url);
+  if (url.pathname.startsWith('/portal')) {
+    requestHeaders.set('x-is-portal', '1');
+  }
+  return NextResponse.next({ request: { headers: requestHeaders } });
+}
+
+const authMiddleware = clerkMiddleware(async (auth, req) => {
   if (isPortalRoute(req) && !isPublicPortalRoute(req)) {
     await auth.protect();
   }
-
-  // Inject x-is-portal header so root layout can hide Nav/Footer
   const requestHeaders = new Headers(req.headers);
   if (isPortalRoute(req)) {
     requestHeaders.set('x-is-portal', '1');
   }
-
   return NextResponse.next({ request: { headers: requestHeaders } });
 });
+
+export default clerkConfigured ? authMiddleware : fallbackMiddleware;
 
 export const config = {
   matcher: [

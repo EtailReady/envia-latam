@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import { ClerkProvider } from '@clerk/nextjs';
 import { headers } from 'next/headers';
 import './globals.css';
 import Nav from '@/components/Nav';
@@ -19,19 +18,33 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
+const clerkKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY ?? '';
+const clerkConfigured = clerkKey.startsWith('pk_') && !clerkKey.includes('REPLACE_ME');
+
+async function LayoutContent({ children }: { children: React.ReactNode }) {
   const headersList = await headers();
   const isPortal = headersList.get('x-is-portal') === '1';
 
   return (
-    <ClerkProvider>
-      <html lang="es" className={inter.variable}>
-        <body>
-          {!isPortal && <Nav />}
-          <main>{children}</main>
-          {!isPortal && <Footer />}
-        </body>
-      </html>
-    </ClerkProvider>
+    <html lang="es" className={inter.variable}>
+      <body>
+        {!isPortal && <Nav />}
+        <main>{children}</main>
+        {!isPortal && <Footer />}
+      </body>
+    </html>
   );
+}
+
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  if (clerkConfigured) {
+    const { ClerkProvider } = await import('@clerk/nextjs');
+    return (
+      <ClerkProvider>
+        <LayoutContent>{children}</LayoutContent>
+      </ClerkProvider>
+    );
+  }
+
+  return <LayoutContent>{children}</LayoutContent>;
 }
