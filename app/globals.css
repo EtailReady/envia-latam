@@ -20,6 +20,26 @@
 * { box-sizing: border-box; }
 body { background: var(--white); color: var(--dark); font-family: var(--font-inter, 'Inter', sans-serif); }
 
+/* Ocean / freight animated hero */
+@keyframes ocean-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.hero-ocean {
+  background: linear-gradient(-40deg, #020c1b, #071a35, #0b2a55, #0d3870, #1a4d9a, #364CD0, #1a4d9a, #0b2a55);
+  background-size: 400% 400%;
+  animation: ocean-shift 14s ease infinite;
+}
+
+/* Freight service badges */
+.freight-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 5px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 600;
+}
+.freight-badge.air { background: #EFF6FF; color: #1D4ED8; border: 1px solid #BFDBFE; }
+.freight-badge.sea { background: #F0FDFA; color: #0D9488; border: 1px solid #99F6E4; }
+
 /* Buttons */
 .btn-primary {
   display: inline-flex; align-items: center; justify-content: center;

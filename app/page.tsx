@@ -10,22 +10,9 @@ export default function HomePage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section style={{ background: '#0D1B2A', padding: '40px 0 56px' }}>
+      <section className="hero-ocean" style={{ padding: '80px 0 100px' }}>
         <div className="container">
-          {/* Image container — clipped to content width, height driven by content */}
-          <div style={{ position: 'relative', borderRadius: '20px', overflow: 'hidden' }}>
-            {/* Image fills whatever height the content needs */}
-            <img
-              src="https://i.ibb.co/whfHdMzT/barco.jpg"
-              alt=""
-              aria-hidden="true"
-              style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }}
-            />
-            {/* Dark overlay */}
-            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(13,27,42,0.40) 0%, rgba(13,27,42,0.75) 100%)', pointerEvents: 'none' }}/>
-
-            {/* Content drives the container height */}
-            <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '72px 24px 64px', textAlign: 'center' }}>
+          <div style={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '20px', padding: '6px 16px', marginBottom: '28px' }}>
             <Plane size={14} color="#EFBF04" />
             <span style={{ fontSize: '0.8rem', color: '#EFBF04', fontWeight: 500 }}>El directorio #1 de couriers USA → Latinoamérica</span>
@@ -59,9 +46,7 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-            </div>{/* /content overlay */}
-          </div>{/* /image container */}
-        </div>{/* /container */}
+        </div>
       </section>
 
       {/* ── TRUST BAR ── */}

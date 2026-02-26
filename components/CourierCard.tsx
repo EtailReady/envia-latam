@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import { Building2, MapPin, Star, Car, Package, FileText, ShoppingBag } from 'lucide-react';
+import { Building2, MapPin, Star, Car, Package, FileText, ShoppingBag, Plane, Anchor } from 'lucide-react';
 import { type Courier, getCountry, getOfficeCountry } from '@/lib/data';
 
 function Stars({ rating }: { rating: number }) {
@@ -95,6 +95,12 @@ export default function CourierCard({ courier }: { courier: Courier }) {
             </div>
           </div>
         )}
+
+        {/* Freight types */}
+        <div style={{ display: 'flex', gap: '7px', flexWrap: 'wrap', marginBottom: '10px' }}>
+          {courier.airFreight && <span className="freight-badge air"><Plane size={12} strokeWidth={2} /> Flete Aéreo</span>}
+          {courier.seaFreight && <span className="freight-badge sea"><Anchor size={12} strokeWidth={2} /> Flete Marítimo</span>}
+        </div>
 
         {/* Services row */}
         <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', paddingTop: '12px', borderTop: '1px solid var(--border)' }}>

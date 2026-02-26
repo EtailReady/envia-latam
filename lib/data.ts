@@ -1,4 +1,4 @@
-export type Country = {
+﻿export type Country = {
   code: string;
   name: string;
   flag: string;
@@ -47,6 +47,8 @@ export type Courier = {
   acceptsVehicles: boolean;
   acceptsMerchandise: boolean;
   acceptsDocuments: boolean;
+  airFreight: boolean;
+  seaFreight: boolean;
 };
 
 export const COUNTRIES: Country[] = [
@@ -121,6 +123,8 @@ export const COURIERS: Courier[] = [
     acceptsVehicles: true,
     acceptsMerchandise: true,
     acceptsDocuments: true,
+    airFreight: true,
+    seaFreight: false,
   },
   {
     id: '2',
@@ -159,6 +163,8 @@ export const COURIERS: Courier[] = [
     acceptsVehicles: false,
     acceptsMerchandise: true,
     acceptsDocuments: true,
+    airFreight: true,
+    seaFreight: false,
   },
   {
     id: '3',
@@ -199,6 +205,8 @@ export const COURIERS: Courier[] = [
     acceptsVehicles: true,
     acceptsMerchandise: true,
     acceptsDocuments: true,
+    airFreight: true,
+    seaFreight: true,
   },
   {
     id: '4',
@@ -238,6 +246,8 @@ export const COURIERS: Courier[] = [
     acceptsVehicles: false,
     acceptsMerchandise: true,
     acceptsDocuments: true,
+    airFreight: true,
+    seaFreight: false,
   },
   {
     id: '5',
@@ -275,6 +285,8 @@ export const COURIERS: Courier[] = [
     acceptsVehicles: false,
     acceptsMerchandise: true,
     acceptsDocuments: true,
+    airFreight: true,
+    seaFreight: false,
   },
   {
     id: '6',
@@ -312,6 +324,8 @@ export const COURIERS: Courier[] = [
     acceptsVehicles: false,
     acceptsMerchandise: true,
     acceptsDocuments: true,
+    airFreight: true,
+    seaFreight: true,
   },
 ];
 
@@ -365,3 +379,4 @@ const OFFICE_META: Record<string, { flag: string; name: string }> = {
 export function getOfficeCountry(code: string) {
   return OFFICE_META[code.toLowerCase()] ?? { flag: '🌐', name: code.toUpperCase() };
 }
+

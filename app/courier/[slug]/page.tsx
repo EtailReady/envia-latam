@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getCourierBySlug, getCountry, getOfficeCountry } from '@/lib/data';
-import { Building2, MessageCircle, Phone, Globe, Mail, MapPin, Package, Star, ChevronLeft } from 'lucide-react';
+import { Building2, MessageCircle, Phone, Globe, Mail, MapPin, Package, Star, ChevronLeft, Plane, Anchor } from 'lucide-react';
 
 function Stars({ rating }: { rating: number }) {
   return (
@@ -71,6 +71,37 @@ export default async function CourierPage({ params }: { params: Promise<{ slug: 
                 <h2 style={{ fontSize: '1.2rem', fontWeight: 700, color: 'var(--dark)', marginBottom: '14px' }}>Sobre {courier.name}</h2>
                 <p style={{ color: 'var(--body)', lineHeight: 1.8, fontSize: '0.95rem' }}>{courier.description}</p>
               </div>
+
+              {/* Freight Services */}
+              {(courier.airFreight || courier.seaFreight) && (
+                <div style={{ marginBottom: '40px' }}>
+                  <h2 style={{ fontSize: '1.2rem', fontWeight: 700, color: 'var(--dark)', marginBottom: '16px' }}>Servicios de Carga</h2>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '14px' }}>
+                    {courier.airFreight && (
+                      <div style={{ background: '#EFF6FF', border: '1px solid #BFDBFE', borderRadius: '14px', padding: '22px 20px', display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
+                        <div style={{ width: '44px', height: '44px', borderRadius: '10px', background: '#1D4ED8', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                          <Plane size={22} color="white" strokeWidth={1.75} />
+                        </div>
+                        <div>
+                          <div style={{ fontWeight: 700, color: '#1D4ED8', marginBottom: '4px', fontSize: '0.95rem' }}>Flete Aéreo</div>
+                          <div style={{ fontSize: '0.8rem', color: '#3B82F6', lineHeight: 1.5 }}>Envío rápido por vía aérea. Ideal para paquetes pequeños y urgentes.</div>
+                        </div>
+                      </div>
+                    )}
+                    {courier.seaFreight && (
+                      <div style={{ background: '#F0FDFA', border: '1px solid #99F6E4', borderRadius: '14px', padding: '22px 20px', display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
+                        <div style={{ width: '44px', height: '44px', borderRadius: '10px', background: '#0D9488', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                          <Anchor size={22} color="white" strokeWidth={1.75} />
+                        </div>
+                        <div>
+                          <div style={{ fontWeight: 700, color: '#0D9488', marginBottom: '4px', fontSize: '0.95rem' }}>Flete Marítimo</div>
+                          <div style={{ fontSize: '0.8rem', color: '#14B8A6', lineHeight: 1.5 }}>Envío por vía marítima. Ideal para cargas grandes y mercancía en volumen.</div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
 
               {/* Offices / Locations */}
               {courier.offices && courier.offices.length > 0 && (() => {
