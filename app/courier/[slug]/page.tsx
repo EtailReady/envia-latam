@@ -45,7 +45,7 @@ export default async function CourierPage({ params }: { params: Promise<{ slug: 
             </div>
             <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
               {courier.whatsapp && (
-                <a href={`https://wa.me/${courier.whatsapp.replace(/\D/g,'')}`} target="_blank" rel="noopener noreferrer" className="btn-accent" style={{ fontSize: '0.85rem', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                <a href={`https://wa.me/${courier.whatsapp.replace(/\D/g,'')}`} target="_blank" rel="noopener noreferrer" className="btn-whatsapp" style={{ fontSize: '0.85rem', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
                   <MessageCircle size={14} /> WhatsApp
                 </a>
               )}
@@ -143,7 +143,7 @@ export default async function CourierPage({ params }: { params: Promise<{ slug: 
                 </div>
                 <div style={{ padding: '20px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
                   {courier.whatsapp && (
-                    <a href={`https://wa.me/${courier.whatsapp.replace(/\D/g,'')}`} target="_blank" rel="noopener noreferrer" className="btn-accent" style={{ fontSize: '0.9rem', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>
+                    <a href={`https://wa.me/${courier.whatsapp.replace(/\D/g,'')}`} target="_blank" rel="noopener noreferrer" className="btn-whatsapp" style={{ fontSize: '0.9rem', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>
                       <MessageCircle size={15} /> Contactar por WhatsApp
                     </a>
                   )}
