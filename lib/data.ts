@@ -3,6 +3,7 @@ export type Country = {
   name: string;
   flag: string;
   nameEs: string;
+  photo: string;
 };
 
 export type Route = {
@@ -49,24 +50,24 @@ export type Courier = {
 };
 
 export const COUNTRIES: Country[] = [
-  { code: 've', name: 'Venezuela',          flag: '🇻🇪', nameEs: 'Venezuela' },
-  { code: 'co', name: 'Colombia',           flag: '🇨🇴', nameEs: 'Colombia' },
-  { code: 'cl', name: 'Chile',              flag: '🇨🇱', nameEs: 'Chile' },
-  { code: 'pe', name: 'Peru',               flag: '🇵🇪', nameEs: 'Perú' },
-  { code: 'do', name: 'Dominican Republic', flag: '🇩🇴', nameEs: 'Rep. Dominicana' },
-  { code: 'mx', name: 'Mexico',             flag: '🇲🇽', nameEs: 'México' },
-  { code: 'ec', name: 'Ecuador',            flag: '🇪🇨', nameEs: 'Ecuador' },
-  { code: 'bo', name: 'Bolivia',            flag: '🇧🇴', nameEs: 'Bolivia' },
-  { code: 'es', name: 'Spain',              flag: '🇪🇸', nameEs: 'España' },
-  { code: 'pa', name: 'Panama',             flag: '🇵🇦', nameEs: 'Panamá' },
-  { code: 'gt', name: 'Guatemala',          flag: '🇬🇹', nameEs: 'Guatemala' },
-  { code: 'sv', name: 'El Salvador',        flag: '🇸🇻', nameEs: 'El Salvador' },
-  { code: 'hn', name: 'Honduras',           flag: '🇭🇳', nameEs: 'Honduras' },
-  { code: 'ar', name: 'Argentina',          flag: '🇦🇷', nameEs: 'Argentina' },
-  { code: 'br', name: 'Brazil',             flag: '🇧🇷', nameEs: 'Brasil' },
-  { code: 'uy', name: 'Uruguay',            flag: '🇺🇾', nameEs: 'Uruguay' },
-  { code: 'pt', name: 'Portugal',           flag: '🇵🇹', nameEs: 'Portugal' },
-  { code: 'pr', name: 'Puerto Rico',        flag: '🇵🇷', nameEs: 'Puerto Rico' },
+  { code: 've', name: 'Venezuela',          flag: '🇻🇪', nameEs: 'Venezuela',       photo: 'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=600&q=80' },
+  { code: 'co', name: 'Colombia',           flag: '🇨🇴', nameEs: 'Colombia',         photo: 'https://images.unsplash.com/photo-1599413987323-b2b8c0d7d9c8?w=600&q=80' },
+  { code: 'cl', name: 'Chile',              flag: '🇨🇱', nameEs: 'Chile',            photo: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600&q=80' },
+  { code: 'pe', name: 'Peru',               flag: '🇵🇪', nameEs: 'Perú',             photo: 'https://images.unsplash.com/photo-1526392060635-9d6019884377?w=600&q=80' },
+  { code: 'do', name: 'Dominican Republic', flag: '🇩🇴', nameEs: 'Rep. Dominicana',  photo: 'https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=600&q=80' },
+  { code: 'mx', name: 'Mexico',             flag: '🇲🇽', nameEs: 'México',           photo: 'https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?w=600&q=80' },
+  { code: 'ec', name: 'Ecuador',            flag: '🇪🇨', nameEs: 'Ecuador',          photo: 'https://images.unsplash.com/photo-1531968455001-5c5272a41129?w=600&q=80' },
+  { code: 'bo', name: 'Bolivia',            flag: '🇧🇴', nameEs: 'Bolivia',          photo: 'https://images.unsplash.com/photo-1536516918657-f13a1a8cfb2c?w=600&q=80' },
+  { code: 'es', name: 'Spain',              flag: '🇪🇸', nameEs: 'España',           photo: 'https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=600&q=80' },
+  { code: 'pa', name: 'Panama',             flag: '🇵🇦', nameEs: 'Panamá',           photo: 'https://images.unsplash.com/photo-1586016413664-864c0dd76f53?w=600&q=80' },
+  { code: 'gt', name: 'Guatemala',          flag: '🇬🇹', nameEs: 'Guatemala',        photo: 'https://images.unsplash.com/photo-1553254448-bdfdb2e82e09?w=600&q=80' },
+  { code: 'sv', name: 'El Salvador',        flag: '🇸🇻', nameEs: 'El Salvador',      photo: 'https://images.unsplash.com/photo-1601312040672-14e7b9b5ff0e?w=600&q=80' },
+  { code: 'hn', name: 'Honduras',           flag: '🇭🇳', nameEs: 'Honduras',         photo: 'https://images.unsplash.com/photo-1504700610630-ac6aba3536d3?w=600&q=80' },
+  { code: 'ar', name: 'Argentina',          flag: '🇦🇷', nameEs: 'Argentina',        photo: 'https://images.unsplash.com/photo-1589909202802-8f4aadce1849?w=600&q=80' },
+  { code: 'br', name: 'Brazil',             flag: '🇧🇷', nameEs: 'Brasil',           photo: 'https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=600&q=80' },
+  { code: 'uy', name: 'Uruguay',            flag: '🇺🇾', nameEs: 'Uruguay',          photo: 'https://images.unsplash.com/photo-1582650625119-3a31f8fa2699?w=600&q=80' },
+  { code: 'pt', name: 'Portugal',           flag: '🇵🇹', nameEs: 'Portugal',         photo: 'https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=600&q=80' },
+  { code: 'pr', name: 'Puerto Rico',        flag: '🇵🇷', nameEs: 'Puerto Rico',      photo: 'https://images.unsplash.com/photo-1580655653885-65763b2597d0?w=600&q=80' },
 ];
 
 export const FROM_CITIES = [

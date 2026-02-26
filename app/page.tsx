@@ -103,11 +103,15 @@ export default function HomePage() {
             <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 800, color: 'var(--dark)', marginBottom: '8px' }}>¿A dónde quieres enviar?</h2>
             <p style={{ color: 'var(--muted)', fontSize: '0.95rem' }}>Selecciona un país para ver todos los couriers disponibles</p>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))', gap: '12px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '14px' }}>
             {COUNTRIES.map(c => (
-              <Link key={c.code} href={`/paises/${c.code}`} className="country-card-link">
-                <span style={{ fontSize: '2rem' }}>{c.flag}</span>
-                <span style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--dark)', textAlign: 'center' }}>{c.nameEs}</span>
+              <Link key={c.code} href={`/paises/${c.code}`} className="country-photo-card">
+                <img src={c.photo} alt={c.nameEs} loading="lazy" />
+                <div className="cp-overlay" />
+                <div className="cp-label">
+                  <span className="cp-flag">{c.flag}</span>
+                  <span className="cp-name">{c.nameEs}</span>
+                </div>
               </Link>
             ))}
           </div>

@@ -112,6 +112,39 @@ body { background: var(--white); color: var(--dark); font-family: var(--font-int
 /* Rating */
 .rating-num { font-size: 1.1rem; font-weight: 700; color: var(--dark); }
 
+/* Country photo cards */
+.country-photo-card {
+  position: relative; border-radius: 14px; overflow: hidden;
+  aspect-ratio: 3/2; display: block; text-decoration: none;
+  cursor: pointer;
+}
+.country-photo-card img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  filter: grayscale(0.5) brightness(0.55);
+  transform: scale(1);
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+.country-photo-card:hover img {
+  filter: grayscale(0) brightness(1);
+  transform: scale(1.05);
+}
+.country-photo-card .cp-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.1) 60%);
+  transition: opacity 0.4s ease;
+}
+.country-photo-card:hover .cp-overlay { opacity: 0.3; }
+.country-photo-card .cp-label {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 16px 14px 14px;
+  display: flex; align-items: center; gap: 7px;
+}
+.country-photo-card .cp-flag { font-size: 1.3rem; line-height: 1; }
+.country-photo-card .cp-name {
+  font-size: 0.92rem; font-weight: 700; color: white;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+}
+
 /* Hover cards — Server Component safe (no inline handlers needed) */
 .country-card-link {
   display: flex; flex-direction: column; align-items: center; gap: 8px;
