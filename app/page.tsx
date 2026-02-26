@@ -198,15 +198,17 @@ export default function HomePage() {
       </section>
 
       {/* ── CTA FOR COURIERS ── */}
-      <section className="section-sm" style={{ background: 'var(--accent)', }}>
-        <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '24px' }}>
-          <div>
-            <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: 'white', marginBottom: '6px' }}>¿Tienes una empresa de courier?</h3>
-            <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '0.9rem' }}>Llega a miles de clientes que buscan servicios de envío cada día.</p>
+      <section className="section-sm" style={{ background: 'var(--bg)' }}>
+        <div className="container">
+          <div style={{ background: 'var(--accent)', borderRadius: '20px', padding: '40px 48px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '24px' }}>
+            <div>
+              <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: 'var(--dark)', marginBottom: '6px' }}>¿Tienes una empresa de courier?</h3>
+              <p style={{ color: 'rgba(13,27,42,0.7)', fontSize: '0.9rem' }}>Llega a miles de clientes que buscan servicios de envío cada día.</p>
+            </div>
+            <Link href="/anunciate" className="anunciate-cta-btn">
+              Publicar mi empresa →
+            </Link>
           </div>
-          <Link href="/anunciate" className="anunciate-cta-btn">
-            Publicar mi empresa →
-          </Link>
         </div>
       </section>
     </>
