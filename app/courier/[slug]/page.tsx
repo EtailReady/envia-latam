@@ -10,8 +10,9 @@ function Stars({ rating }: { rating: number }) {
   );
 }
 
-export default function CourierPage({ params }: { params: { slug: string } }) {
-  const courier = getCourierBySlug(params.slug);
+export default async function CourierPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const courier = getCourierBySlug(slug);
   if (!courier) notFound();
 
   return (

@@ -8,8 +8,9 @@ export async function generateStaticParams() {
   return ['ve','co','cl','pe','do','mx','ec','bo','es','pa','gt','sv','hn','ar','br','uy','pt','pr'].map(code => ({ code }));
 }
 
-export async function generateMetadata({ params }: { params: { code: string } }): Promise<Metadata> {
-  const c = getCountry(params.code);
+export async function generateMetadata({ params }: { params: Promise<{ code: string }> }): Promise<Metadata> {
+  const { code } = await params;
+  const c = getCountry(code);
   if (!c) return {};
   return {
     title: `Couriers a ${c.nameEs} desde USA | Envia Latam`,
@@ -17,11 +18,12 @@ export async function generateMetadata({ params }: { params: { code: string } })
   };
 }
 
-export default function CountryPage({ params }: { params: { code: string } }) {
-  const country = getCountry(params.code);
+export default async function CountryPage({ params }: { params: Promise<{ code: string }> }) {
+  const { code } = await params;
+  const country = getCountry(code);
   if (!country) notFound();
 
-  const results = searchCouriers(undefined, params.code);
+  const results = searchCouriers(undefined, code);
 
   return (
     <>

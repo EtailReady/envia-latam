@@ -14,9 +14,7 @@ export default function PaisesPage() {
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '14px' }}>
             {COUNTRIES.map(c => (
-              <Link key={c.code} href={`/paises/${c.code}`} style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '16px 18px', background: 'white', border: '1px solid var(--border)', borderRadius: '12px', textDecoration: 'none', transition: 'all .2s' }}
-                onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--brand)'; e.currentTarget.style.background = 'var(--brand-light)'; }}
-                onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.background = 'white'; }}>
+              <Link key={c.code} href={`/paises/${c.code}`} className="pais-link-card">
                 <span style={{ fontSize: '1.8rem' }}>{c.flag}</span>
                 <span style={{ fontWeight: 600, color: 'var(--dark)', fontSize: '0.9rem' }}>{c.nameEs}</span>
               </Link>

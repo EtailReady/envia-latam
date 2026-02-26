@@ -47,9 +47,7 @@ export default function MarketplacePage() {
           <p style={{ textAlign: 'center', color: 'var(--muted)', marginBottom: '32px', fontSize: '0.9rem' }}>Haz click para ir a la tienda. Los couriers reciben pedidos de todas estas plataformas.</p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '16px', maxWidth: '960px', margin: '0 auto' }}>
             {AFFILIATES.map(a => (
-              <a key={a.name} href={a.url} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '20px', background: 'white', border: '1px solid var(--border)', borderRadius: '12px', textDecoration: 'none', transition: 'all .2s' }}
-                onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--brand)'; e.currentTarget.style.boxShadow = '0 4px 16px rgba(27,79,216,0.1)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
-                onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.boxShadow = 'none'; e.currentTarget.style.transform = 'none'; }}>
+              <a key={a.name} href={a.url} target="_blank" rel="noopener noreferrer" className="store-card">
                 <span style={{ fontSize: '2.2rem' }}>{a.icon}</span>
                 <div>
                   <div style={{ fontWeight: 700, color: 'var(--dark)', marginBottom: '2px' }}>{a.name}</div>

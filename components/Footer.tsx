@@ -1,3 +1,4 @@
+'use client';
 import Link from 'next/link';
 import { COUNTRIES } from '@/lib/data';
 

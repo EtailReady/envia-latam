@@ -86,9 +86,7 @@ export default function HomePage() {
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))', gap: '12px' }}>
             {COUNTRIES.map(c => (
-              <Link key={c.code} href={`/paises/${c.code}`} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', padding: '20px 12px', background: 'white', border: '1px solid var(--border)', borderRadius: '12px', textDecoration: 'none', transition: 'all .2s' }}
-                onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--brand)'; e.currentTarget.style.boxShadow = '0 4px 16px rgba(27,79,216,0.12)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
-                onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.boxShadow = 'none'; e.currentTarget.style.transform = 'none'; }}>
+              <Link key={c.code} href={`/paises/${c.code}`} className="country-card-link">
                 <span style={{ fontSize: '2rem' }}>{c.flag}</span>
                 <span style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--dark)', textAlign: 'center' }}>{c.nameEs}</span>
               </Link>
@@ -138,9 +136,7 @@ export default function HomePage() {
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))', gap: '12px', maxWidth: '800px', margin: '0 auto 32px' }}>
             {AFFILIATES.map(a => (
-              <Link key={a.name} href={a.url} target="_blank" rel="noopener noreferrer" style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.15)', borderRadius: '12px', padding: '20px 16px', textDecoration: 'none', transition: 'all .2s', display: 'block' }}
-                onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.15)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
-                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.08)'; e.currentTarget.style.transform = 'none'; }}>
+              <Link key={a.name} href={a.url} target="_blank" rel="noopener noreferrer" className="affiliate-dark-card">
                 <div style={{ fontSize: '2rem', marginBottom: '8px' }}>{a.icon}</div>
                 <div style={{ fontSize: '0.9rem', fontWeight: 700, color: 'white', marginBottom: '4px' }}>{a.name}</div>
                 <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.55)' }}>{a.desc}</div>
@@ -179,9 +175,7 @@ export default function HomePage() {
             <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: 'white', marginBottom: '6px' }}>¿Tienes una empresa de courier?</h3>
             <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '0.9rem' }}>Llega a miles de clientes que buscan servicios de envío cada día.</p>
           </div>
-          <Link href="/anunciate" style={{ background: 'white', color: 'var(--accent-dark)', padding: '12px 28px', borderRadius: '8px', fontWeight: 700, textDecoration: 'none', fontSize: '0.9rem', whiteSpace: 'nowrap', transition: 'transform .15s' }}
-            onMouseEnter={e => (e.currentTarget.style.transform = 'translateY(-1px)')}
-            onMouseLeave={e => (e.currentTarget.style.transform = 'none')}>
+          <Link href="/anunciate" className="anunciate-cta-btn">
             Publicar mi empresa →
           </Link>
         </div>

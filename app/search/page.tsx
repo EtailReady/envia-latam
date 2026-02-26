@@ -2,9 +2,10 @@ import { searchCouriers, getCountry, COUNTRIES, FROM_CITIES } from '@/lib/data';
 import CourierCard from '@/components/CourierCard';
 import SearchBar from '@/components/SearchBar';
 
-export default function SearchPage({ searchParams }: { searchParams: { from?: string; to?: string } }) {
-  const from = searchParams.from ?? '';
-  const to   = searchParams.to ?? '';
+export default async function SearchPage({ searchParams }: { searchParams: Promise<{ from?: string; to?: string }> }) {
+  const { from: rawFrom, to: rawTo } = await searchParams;
+  const from = rawFrom ?? '';
+  const to   = rawTo ?? '';
   const results = searchCouriers(from || undefined, to || undefined);
   const country = to ? getCountry(to) : null;
 
