@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import { ClerkProvider } from '@clerk/nextjs';
+import { headers } from 'next/headers';
 import './globals.css';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
@@ -17,14 +19,19 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const headersList = await headers();
+  const isPortal = headersList.get('x-is-portal') === '1';
+
   return (
-    <html lang="es" className={inter.variable}>
-      <body>
-        <Nav />
-        <main>{children}</main>
-        <Footer />
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="es" className={inter.variable}>
+        <body>
+          {!isPortal && <Nav />}
+          <main>{children}</main>
+          {!isPortal && <Footer />}
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
