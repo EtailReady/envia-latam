@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import { Building2, MapPin, Star, Car, Package, FileText, ShoppingBag, Plane, Anchor } from 'lucide-react';
+import { Building2, MapPin, Star, Car, Package, FileText, ShoppingBag, Plane, Anchor, Check } from 'lucide-react';
 import { type Courier, getCountry, getOfficeCountry } from '@/lib/data';
 
 function Stars({ rating }: { rating: number }) {
@@ -37,7 +37,7 @@ export default function CourierCard({ courier }: { courier: Courier }) {
           <div style={{ flex: 1, minWidth: 0 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '3px' }}>
               <h3 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--dark)', margin: 0 }}>{courier.name}</h3>
-              {courier.verified && <span className="badge-verified">✓ Verificado</span>}
+              {courier.verified && <span className="badge-verified" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}><Check size={10} strokeWidth={3} /> Verificado</span>}
             </div>
             <p style={{ fontSize: '0.8rem', color: 'var(--muted)', margin: 0, lineHeight: 1.4 }}>{courier.tagline}</p>
           </div>

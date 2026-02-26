@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import { searchCouriers, getCountry, COURIERS } from '@/lib/data';
 import CourierCard from '@/components/CourierCard';
 import SearchBar from '@/components/SearchBar';
+import { Search } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export async function generateStaticParams() {
@@ -29,7 +30,7 @@ export default async function CountryPage({ params }: { params: Promise<{ code: 
     <>
       <section style={{ background: 'linear-gradient(135deg, var(--dark), var(--brand))', padding: '56px 0' }}>
         <div className="container" style={{ textAlign: 'center' }}>
-          <div style={{ fontSize: '4rem', marginBottom: '12px' }}>{country.flag}</div>
+          <span className={`fi fi-${country.code}`} style={{ width: '72px', height: '52px', borderRadius: '8px', display: 'inline-block', marginBottom: '12px', boxShadow: '0 2px 8px rgba(0,0,0,0.2)' }} />
           <h1 style={{ fontSize: 'clamp(1.8rem,4vw,2.8rem)', fontWeight: 800, color: 'white', marginBottom: '10px' }}>
             Couriers a {country.nameEs}
           </h1>
@@ -46,7 +47,7 @@ export default async function CountryPage({ params }: { params: Promise<{ code: 
         <div className="container">
           {results.length === 0 ? (
             <div style={{ textAlign: 'center', padding: '64px 0' }}>
-              <div style={{ fontSize: '2.5rem', marginBottom: '14px' }}>🔍</div>
+              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '14px' }}><Search size={48} color="var(--muted)" strokeWidth={1.25} /></div>
               <h2 style={{ fontSize: '1.3rem', fontWeight: 700, color: 'var(--dark)', marginBottom: '8px' }}>Próximamente</h2>
               <p style={{ color: 'var(--muted)', marginBottom: '20px' }}>Estamos agregando couriers a {country.nameEs}. Vuelve pronto.</p>
               <a href="/search" className="btn-primary">Ver todos los couriers</a>

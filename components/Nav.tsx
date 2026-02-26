@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { useState } from 'react';
-import { CalendarDays } from 'lucide-react';
+import { CalendarDays, Menu, X } from 'lucide-react';
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
@@ -51,7 +51,7 @@ export default function Nav() {
 
         {/* Mobile hamburger */}
         <button onClick={() => setOpen(v => !v)} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '8px', display: 'none' }} className="show-mobile">
-          <span style={{ fontSize: '1.4rem', color: 'var(--dark)' }}>{open ? '✕' : '☰'}</span>
+          {open ? <X size={22} color="var(--dark)" /> : <Menu size={22} color="var(--dark)" />}
         </button>
       </div>
 
