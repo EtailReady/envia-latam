@@ -62,7 +62,7 @@ body { background: var(--white); color: var(--dark); font-family: var(--font-int
 }
 .badge-featured {
   display: inline-flex; align-items: center; gap: 4px;
-  background: #FFF7ED; color: var(--accent-dark);
+  background: var(--brand-light); color: var(--brand);
   font-size: 0.7rem; font-weight: 600; padding: 3px 8px;
   border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase;
 }
@@ -75,7 +75,7 @@ body { background: var(--white); color: var(--dark); font-family: var(--font-int
   text-decoration: none; color: inherit; display: block;
 }
 .courier-card:hover { box-shadow: 0 8px 32px rgba(27,79,216,0.1); transform: translateY(-2px); }
-.courier-card.featured { border-color: var(--accent); border-width: 2px; }
+.courier-card.featured { border-color: var(--brand); border-width: 2px; }
 
 /* Search bar */
 .search-container {
@@ -136,7 +136,7 @@ body { background: var(--white); color: var(--dark); font-family: var(--font-int
 .store-card:hover { border-color: var(--brand); box-shadow: 0 4px 16px rgba(27,79,216,0.1); transform: translateY(-2px); }
 
 .anunciate-cta-btn {
-  background: white; color: var(--accent-dark);
+  background: white; color: var(--brand);
   padding: 12px 28px; border-radius: 8px; font-weight: 700;
   text-decoration: none; font-size: 0.9rem; white-space: nowrap;
   display: inline-block; transition: transform 0.15s;

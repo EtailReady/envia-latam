@@ -16,7 +16,7 @@ export default function HomePage() {
         <div style={{ position: 'absolute', bottom: '-30%', left: '-5%', width: '400px', height: '400px', borderRadius: '50%', background: 'rgba(255,255,255,0.03)', pointerEvents: 'none' }}/>
 
         <div className="container" style={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(237,195,29,0.15)', border: '1px solid rgba(237,195,29,0.3)', borderRadius: '20px', padding: '6px 16px', marginBottom: '28px' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '20px', padding: '6px 16px', marginBottom: '28px' }}>
             <Plane size={14} color="#F5DC6C" />
             <span style={{ fontSize: '0.8rem', color: '#F5DC6C', fontWeight: 500 }}>El directorio #1 de couriers USA → Latinoamérica</span>
           </div>
@@ -133,7 +133,7 @@ export default function HomePage() {
       {/* ── AFFILIATE / MARKETPLACE ── */}
       <section className="section" style={{ background: 'linear-gradient(135deg, #0D1B2A, #364CD0)' }}>
         <div className="container" style={{ textAlign: 'center' }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(237,195,29,0.15)', border: '1px solid rgba(237,195,29,0.3)', borderRadius: '20px', padding: '6px 16px', marginBottom: '24px' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '20px', padding: '6px 16px', marginBottom: '24px' }}>
             <ShoppingCart size={14} color="#F5DC6C" />
             <span style={{ fontSize: '0.8rem', color: '#F5DC6C', fontWeight: 500 }}>Compra en USA, envía a Latinoamérica</span>
           </div>
