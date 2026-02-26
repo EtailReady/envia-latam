@@ -10,10 +10,9 @@ export default function HomePage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section style={{ background: 'linear-gradient(135deg, #0D1B2A 0%, #364CD0 60%, #2A3BA8 100%)', padding: '80px 0 100px', position: 'relative', overflow: 'hidden' }}>
-        {/* BG decoration */}
-        <div style={{ position: 'absolute', top: '-20%', right: '-10%', width: '500px', height: '500px', borderRadius: '50%', background: 'rgba(255,237,41,0.08)', pointerEvents: 'none' }}/>
-        <div style={{ position: 'absolute', bottom: '-30%', left: '-5%', width: '400px', height: '400px', borderRadius: '50%', background: 'rgba(255,255,255,0.03)', pointerEvents: 'none' }}/>
+      <section style={{ position: 'relative', padding: '80px 0 100px', overflow: 'hidden', backgroundImage: 'url(https://i.ibb.co/whfHdMzT/barco.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        {/* Dark overlay for readability */}
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(13,27,42,0.88) 0%, rgba(54,76,208,0.75) 60%, rgba(42,59,168,0.82) 100%)', pointerEvents: 'none' }}/>
 
         <div className="container" style={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '20px', padding: '6px 16px', marginBottom: '28px' }}>
