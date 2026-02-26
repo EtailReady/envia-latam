@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import { Heart } from 'lucide-react';
 import { COUNTRIES } from '@/lib/data';
 
 export default function Footer() {
@@ -59,7 +60,9 @@ export default function Footer() {
 
         <div style={{ borderTop: '1px solid #1F2937', paddingTop: '24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
           <p style={{ fontSize: '0.78rem' }}>© {new Date().getFullYear()} Envia Latam. Todos los derechos reservados.</p>
-          <p style={{ fontSize: '0.78rem' }}>Hecho con ❤️ para la comunidad latina en USA</p>
+          <p style={{ fontSize: '0.78rem', display: 'flex', alignItems: 'center', gap: '5px' }}>
+            Hecho con <Heart size={13} fill="#ef4444" color="#ef4444" /> por <strong style={{ color: 'white' }}>EtailReady</strong> para la comunidad latina en USA
+          </p>
         </div>
       </div>
     </footer>
