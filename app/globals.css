@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "flag-icons/css/flag-icons.min.css";
 
 :root {
   --brand:       #364CD0;
@@ -156,13 +157,12 @@ body { background: var(--white); color: var(--dark); font-family: var(--font-int
 .country-photo-card:hover .cp-overlay { opacity: 0.3; }
 .country-photo-card .cp-label {
   position: absolute; bottom: 0; left: 0; right: 0;
-  padding: 16px 14px 14px;
-  display: flex; align-items: center; gap: 7px;
+  padding: 14px 12px 12px;
+  display: flex; align-items: center; gap: 9px;
 }
-.country-photo-card .cp-flag { font-size: 1.3rem; line-height: 1; }
 .country-photo-card .cp-name {
-  font-size: 0.92rem; font-weight: 700; color: white;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+  font-size: 0.88rem; font-weight: 700; color: white;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5); line-height: 1.2;
 }
 
 /* Hover cards — Server Component safe (no inline handlers needed) */

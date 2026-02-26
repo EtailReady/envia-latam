@@ -96,8 +96,11 @@ export default function HomePage() {
                 <img src={c.photo} alt={c.nameEs} loading="lazy" />
                 <div className="cp-overlay" />
                 <div className="cp-label">
-                  <span className="cp-flag">{c.flag}</span>
-                  <span className="cp-name">{c.nameEs}</span>
+                  <span className={`fi fi-${c.code}`} style={{ width: '22px', height: '16px', borderRadius: '3px', flexShrink: 0, display: 'inline-block' }} />
+                  <div>
+                    <div style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.65)', fontWeight: 600, letterSpacing: '0.1em', lineHeight: 1 }}>{c.code.toUpperCase()}</div>
+                    <div className="cp-name">{c.nameEs}</div>
+                  </div>
                 </div>
               </Link>
             ))}
