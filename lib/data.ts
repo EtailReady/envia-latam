@@ -4,6 +4,7 @@
   flag: string;
   nameEs: string;
   photo: string;
+  region: 'latam' | 'europa' | 'asia';
 };
 
 export type Route = {
@@ -53,24 +54,39 @@ export type Courier = {
 };
 
 export const COUNTRIES: Country[] = [
-  { code: 've', name: 'Venezuela',          flag: '🇻🇪', nameEs: 'Venezuela',       photo: 'https://i.ibb.co/39X93LHm/venezuela-1.jpg' },
-  { code: 'co', name: 'Colombia',           flag: '🇨🇴', nameEs: 'Colombia',         photo: 'https://i.ibb.co/nMBvPnBL/colombia.jpg' },
-  { code: 'cl', name: 'Chile',              flag: '🇨🇱', nameEs: 'Chile',            photo: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600&q=80' },
-  { code: 'pe', name: 'Peru',               flag: '🇵🇪', nameEs: 'Perú',             photo: 'https://images.unsplash.com/photo-1526392060635-9d6019884377?w=600&q=80' },
-  { code: 'do', name: 'Dominican Republic', flag: '🇩🇴', nameEs: 'Rep. Dominicana',  photo: 'https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=600&q=80' },
-  { code: 'mx', name: 'Mexico',             flag: '🇲🇽', nameEs: 'México',           photo: 'https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?w=600&q=80' },
-  { code: 'ec', name: 'Ecuador',            flag: '🇪🇨', nameEs: 'Ecuador',          photo: 'https://images.unsplash.com/photo-1531968455001-5c5272a41129?w=600&q=80' },
-  { code: 'bo', name: 'Bolivia',            flag: '🇧🇴', nameEs: 'Bolivia',          photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Reflection_on_the_Salar_de_Uyuni%2C_bolivia.jpg/800px-Reflection_on_the_Salar_de_Uyuni%2C_bolivia.jpg' },
-  { code: 'es', name: 'Spain',              flag: '🇪🇸', nameEs: 'España',           photo: 'https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=600&q=80' },
-  { code: 'pa', name: 'Panama',             flag: '🇵🇦', nameEs: 'Panamá',           photo: 'https://images.unsplash.com/photo-1586016413664-864c0dd76f53?w=600&q=80' },
-  { code: 'gt', name: 'Guatemala',          flag: '🇬🇹', nameEs: 'Guatemala',        photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Tikal_mayan_ruins_2009.jpg/800px-Tikal_mayan_ruins_2009.jpg' },
-  { code: 'sv', name: 'El Salvador',        flag: '🇸🇻', nameEs: 'El Salvador',      photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Palms_El_Salvador.JPG/800px-Palms_El_Salvador.JPG' },
-  { code: 'hn', name: 'Honduras',           flag: '🇭🇳', nameEs: 'Honduras',         photo: 'https://images.unsplash.com/photo-1504700610630-ac6aba3536d3?w=600&q=80' },
-  { code: 'ar', name: 'Argentina',          flag: '🇦🇷', nameEs: 'Argentina',        photo: 'https://images.unsplash.com/photo-1589909202802-8f4aadce1849?w=600&q=80' },
-  { code: 'br', name: 'Brazil',             flag: '🇧🇷', nameEs: 'Brasil',           photo: 'https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=600&q=80' },
-  { code: 'uy', name: 'Uruguay',            flag: '🇺🇾', nameEs: 'Uruguay',          photo: 'https://images.unsplash.com/photo-1582650625119-3a31f8fa2699?w=600&q=80' },
-  { code: 'pt', name: 'Portugal',           flag: '🇵🇹', nameEs: 'Portugal',         photo: 'https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=600&q=80' },
-  { code: 'pr', name: 'Puerto Rico',        flag: '🇵🇷', nameEs: 'Puerto Rico',      photo: 'https://images.unsplash.com/photo-1580655653885-65763b2597d0?w=600&q=80' },
+  // ── América Latina ───────────────────────────────────────────────────────
+  { code: 've', name: 'Venezuela',          flag: '🇻🇪', nameEs: 'Venezuela',       region: 'latam', photo: 'https://i.ibb.co/39X93LHm/venezuela-1.jpg' },
+  { code: 'co', name: 'Colombia',           flag: '🇨🇴', nameEs: 'Colombia',         region: 'latam', photo: 'https://i.ibb.co/nMBvPnBL/colombia.jpg' },
+  { code: 'mx', name: 'Mexico',             flag: '🇲🇽', nameEs: 'México',           region: 'latam', photo: 'https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?w=600&q=80' },
+  { code: 'ar', name: 'Argentina',          flag: '🇦🇷', nameEs: 'Argentina',        region: 'latam', photo: 'https://images.unsplash.com/photo-1589909202802-8f4aadce1849?w=600&q=80' },
+  { code: 'br', name: 'Brazil',             flag: '🇧🇷', nameEs: 'Brasil',           region: 'latam', photo: 'https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=600&q=80' },
+  { code: 'cl', name: 'Chile',              flag: '🇨🇱', nameEs: 'Chile',            region: 'latam', photo: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600&q=80' },
+  { code: 'pe', name: 'Peru',               flag: '🇵🇪', nameEs: 'Perú',             region: 'latam', photo: 'https://images.unsplash.com/photo-1526392060635-9d6019884377?w=600&q=80' },
+  { code: 'do', name: 'Dominican Republic', flag: '🇩🇴', nameEs: 'Rep. Dominicana',  region: 'latam', photo: 'https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=600&q=80' },
+  { code: 'ec', name: 'Ecuador',            flag: '🇪🇨', nameEs: 'Ecuador',          region: 'latam', photo: 'https://images.unsplash.com/photo-1531968455001-5c5272a41129?w=600&q=80' },
+  { code: 'bo', name: 'Bolivia',            flag: '🇧🇴', nameEs: 'Bolivia',          region: 'latam', photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Reflection_on_the_Salar_de_Uyuni%2C_bolivia.jpg/800px-Reflection_on_the_Salar_de_Uyuni%2C_bolivia.jpg' },
+  { code: 'pa', name: 'Panama',             flag: '🇵🇦', nameEs: 'Panamá',           region: 'latam', photo: 'https://images.unsplash.com/photo-1586016413664-864c0dd76f53?w=600&q=80' },
+  { code: 'gt', name: 'Guatemala',          flag: '🇬🇹', nameEs: 'Guatemala',        region: 'latam', photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Tikal_mayan_ruins_2009.jpg/800px-Tikal_mayan_ruins_2009.jpg' },
+  { code: 'sv', name: 'El Salvador',        flag: '🇸🇻', nameEs: 'El Salvador',      region: 'latam', photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Palms_El_Salvador.JPG/800px-Palms_El_Salvador.JPG' },
+  { code: 'hn', name: 'Honduras',           flag: '🇭🇳', nameEs: 'Honduras',         region: 'latam', photo: 'https://images.unsplash.com/photo-1504700610630-ac6aba3536d3?w=600&q=80' },
+  { code: 'uy', name: 'Uruguay',            flag: '🇺🇾', nameEs: 'Uruguay',          region: 'latam', photo: 'https://images.unsplash.com/photo-1582650625119-3a31f8fa2699?w=600&q=80' },
+  { code: 'pr', name: 'Puerto Rico',        flag: '🇵🇷', nameEs: 'Puerto Rico',      region: 'latam', photo: 'https://images.unsplash.com/photo-1580655653885-65763b2597d0?w=600&q=80' },
+
+  // ── Europa ───────────────────────────────────────────────────────────────
+  { code: 'es', name: 'Spain',              flag: '🇪🇸', nameEs: 'España',           region: 'europa', photo: 'https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=600&q=80' },
+  { code: 'pt', name: 'Portugal',           flag: '🇵🇹', nameEs: 'Portugal',         region: 'europa', photo: 'https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=600&q=80' },
+  { code: 'fr', name: 'France',             flag: '🇫🇷', nameEs: 'Francia',          region: 'europa', photo: 'https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=600&q=80' },
+  { code: 'it', name: 'Italy',              flag: '🇮🇹', nameEs: 'Italia',           region: 'europa', photo: 'https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=600&q=80' },
+  { code: 'gb', name: 'United Kingdom',     flag: '🇬🇧', nameEs: 'Reino Unido',      region: 'europa', photo: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&q=80' },
+  { code: 'de', name: 'Germany',            flag: '🇩🇪', nameEs: 'Alemania',         region: 'europa', photo: 'https://images.unsplash.com/photo-1560969184-10fe8719e047?w=600&q=80' },
+  { code: 'nl', name: 'Netherlands',        flag: '🇳🇱', nameEs: 'Países Bajos',     region: 'europa', photo: 'https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?w=600&q=80' },
+
+  // ── Asia ─────────────────────────────────────────────────────────────────
+  { code: 'cn', name: 'China',              flag: '🇨🇳', nameEs: 'China',            region: 'asia', photo: 'https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=600&q=80' },
+  { code: 'jp', name: 'Japan',              flag: '🇯🇵', nameEs: 'Japón',            region: 'asia', photo: 'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=600&q=80' },
+  { code: 'in', name: 'India',              flag: '🇮🇳', nameEs: 'India',            region: 'asia', photo: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?w=600&q=80' },
+  { code: 'ae', name: 'UAE',                flag: '🇦🇪', nameEs: 'Emiratos Árabes',  region: 'asia', photo: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&q=80' },
+  { code: 'ph', name: 'Philippines',        flag: '🇵🇭', nameEs: 'Filipinas',        region: 'asia', photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Chocolate_Hills_overview.JPG/800px-Chocolate_Hills_overview.JPG' },
 ];
 
 export const FROM_CITIES = [
