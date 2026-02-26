@@ -32,6 +32,7 @@ export type Courier = {
   reviewCount: number;
   verified: boolean;
   featured: boolean;
+  tier: 'free' | 'paid';
   fromCities: string[];
   toCountries: string[];
   offices?: Office[];
@@ -98,6 +99,7 @@ export const COURIERS: Courier[] = [
     reviewCount: 312,
     verified: true,
     featured: true,
+    tier: 'paid',
     fromCities: ['Miami, FL', 'Orlando, FL'],
     toCountries: ['ve', 'co', 'do', 'pa'],
     offices: [
@@ -138,6 +140,7 @@ export const COURIERS: Courier[] = [
     reviewCount: 189,
     verified: true,
     featured: true,
+    tier: 'paid',
     fromCities: ['Miami, FL', 'New York, NY'],
     toCountries: ['ve', 'co', 'ec', 'pe', 'bo'],
     offices: [
@@ -178,6 +181,7 @@ export const COURIERS: Courier[] = [
     reviewCount: 247,
     verified: true,
     featured: false,
+    tier: 'free',
     fromCities: ['Houston, TX', 'Dallas, TX'],
     toCountries: ['mx', 've', 'co', 'gt', 'sv', 'hn'],
     offices: [
@@ -220,6 +224,7 @@ export const COURIERS: Courier[] = [
     reviewCount: 421,
     verified: true,
     featured: true,
+    tier: 'paid',
     fromCities: ['Miami, FL', 'Orlando, FL', 'Atlanta, GA'],
     toCountries: ['ve', 'do', 'pa', 'pr'],
     offices: [
@@ -261,6 +266,7 @@ export const COURIERS: Courier[] = [
     reviewCount: 156,
     verified: true,
     featured: false,
+    tier: 'free',
     fromCities: ['New York, NY', 'Boston, MA'],
     toCountries: ['ve', 'co', 'pe', 'es', 'pt', 'do'],
     offices: [
@@ -300,6 +306,7 @@ export const COURIERS: Courier[] = [
     reviewCount: 98,
     verified: false,
     featured: false,
+    tier: 'free',
     fromCities: ['Miami, FL', 'Los Angeles, CA'],
     toCountries: ['ar', 'cl', 'uy', 'br', 'pe', 'bo'],
     offices: [

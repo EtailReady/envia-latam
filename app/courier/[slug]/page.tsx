@@ -1,7 +1,8 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getCourierBySlug, getCountry, getOfficeCountry } from '@/lib/data';
-import { Building2, MessageCircle, Phone, Globe, Mail, MapPin, Package, Star, ChevronLeft, Plane, Anchor } from 'lucide-react';
+import { Building2, MessageCircle, Phone, Globe, Mail, MapPin, Package, Star, ChevronLeft, Plane, Anchor, Lock } from 'lucide-react';
+import PickupButton from '@/components/PickupButton';
 
 function Stars({ rating }: { rating: number }) {
   return (
@@ -231,6 +232,47 @@ export default async function CourierPage({ params }: { params: Promise<{ slug: 
                       <Phone size={15} /> {courier.phone}
                     </a>
                   )}
+                  {/* Request Pickup — paid tier only */}
+                  {courier.tier === 'paid' ? (
+                    <PickupButton courier={courier} />
+                  ) : (
+                    <div
+                      title="Disponible para couriers en plan premium"
+                      style={{
+                        width: '100%',
+                        padding: '12px',
+                        background: 'var(--bg)',
+                        border: '1px dashed var(--border)',
+                        borderRadius: '10px',
+                        fontWeight: 600,
+                        fontSize: '0.88rem',
+                        color: 'var(--muted)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '7px',
+                        cursor: 'default',
+                        userSelect: 'none',
+                      }}
+                    >
+                      <Lock size={14} /> Solicitar Pickup
+                      <span
+                        style={{
+                          fontSize: '0.65rem',
+                          fontWeight: 700,
+                          color: 'var(--accent)',
+                          background: 'rgba(239,191,4,0.12)',
+                          padding: '2px 7px',
+                          borderRadius: '20px',
+                          textTransform: 'uppercase',
+                          letterSpacing: '0.07em',
+                        }}
+                      >
+                        Premium
+                      </span>
+                    </div>
+                  )}
+
                   {courier.website && (
                     <a href={courier.website} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', padding: '10px', background: 'var(--bg)', border: '1px solid var(--border)', borderRadius: '8px', color: 'var(--body)', textDecoration: 'none', fontSize: '0.85rem' }}>
                       <Globe size={14} /> Visitar sitio web
