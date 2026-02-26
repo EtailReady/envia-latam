@@ -10,18 +10,21 @@ export default function HomePage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section style={{ position: 'relative', padding: '80px 0 100px', overflow: 'hidden', background: '#0D1B2A' }}>
-        {/* Hero image — rendered at natural size, no upscaling */}
-        <img
-          src="https://i.ibb.co/whfHdMzT/barco.jpg"
-          alt=""
-          aria-hidden="true"
-          style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', minWidth: '2000px', height: '100%', objectFit: 'cover', objectPosition: 'center', pointerEvents: 'none' }}
-        />
-        {/* Dark overlay for readability */}
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(13,27,42,0.85) 0%, rgba(54,76,208,0.70) 60%, rgba(42,59,168,0.78) 100%)', pointerEvents: 'none' }}/>
+      <section style={{ background: '#0D1B2A', padding: '40px 0 56px' }}>
+        <div className="container">
+          {/* Image container — clipped to content width */}
+          <div style={{ position: 'relative', borderRadius: '20px', overflow: 'hidden', marginBottom: '0' }}>
+            <img
+              src="https://i.ibb.co/whfHdMzT/barco.jpg"
+              alt=""
+              aria-hidden="true"
+              style={{ width: '100%', height: '560px', objectFit: 'cover', objectPosition: 'center', display: 'block' }}
+            />
+            {/* Dark overlay for readability */}
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(13,27,42,0.45) 0%, rgba(13,27,42,0.80) 100%)', pointerEvents: 'none' }}/>
 
-        <div className="container" style={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
+            {/* Content on top of image */}
+            <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '48px 24px', textAlign: 'center' }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '20px', padding: '6px 16px', marginBottom: '28px' }}>
             <Plane size={14} color="#EFBF04" />
             <span style={{ fontSize: '0.8rem', color: '#EFBF04', fontWeight: 500 }}>El directorio #1 de couriers USA → Latinoamérica</span>
@@ -55,7 +58,9 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-        </div>
+            </div>{/* /content overlay */}
+          </div>{/* /image container */}
+        </div>{/* /container */}
       </section>
 
       {/* ── TRUST BAR ── */}
