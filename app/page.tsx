@@ -9,20 +9,20 @@ export default function HomePage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section style={{ background: 'linear-gradient(135deg, #0D1B2A 0%, #1B4FD8 60%, #1240B0 100%)', padding: '80px 0 100px', position: 'relative', overflow: 'hidden' }}>
+      <section style={{ background: 'linear-gradient(135deg, #0D1B2A 0%, #364CD0 60%, #2A3BA8 100%)', padding: '80px 0 100px', position: 'relative', overflow: 'hidden' }}>
         {/* BG decoration */}
-        <div style={{ position: 'absolute', top: '-20%', right: '-10%', width: '500px', height: '500px', borderRadius: '50%', background: 'rgba(245,158,11,0.08)', pointerEvents: 'none' }}/>
+        <div style={{ position: 'absolute', top: '-20%', right: '-10%', width: '500px', height: '500px', borderRadius: '50%', background: 'rgba(237,195,29,0.08)', pointerEvents: 'none' }}/>
         <div style={{ position: 'absolute', bottom: '-30%', left: '-5%', width: '400px', height: '400px', borderRadius: '50%', background: 'rgba(255,255,255,0.03)', pointerEvents: 'none' }}/>
 
         <div className="container" style={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(245,158,11,0.15)', border: '1px solid rgba(245,158,11,0.3)', borderRadius: '20px', padding: '6px 16px', marginBottom: '28px' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(237,195,29,0.15)', border: '1px solid rgba(237,195,29,0.3)', borderRadius: '20px', padding: '6px 16px', marginBottom: '28px' }}>
             <span>✈️</span>
-            <span style={{ fontSize: '0.8rem', color: '#FCD34D', fontWeight: 500 }}>El directorio #1 de couriers USA → Latinoamérica</span>
+            <span style={{ fontSize: '0.8rem', color: '#F5DC6C', fontWeight: 500 }}>El directorio #1 de couriers USA → Latinoamérica</span>
           </div>
 
           <h1 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.8rem)', fontWeight: 800, color: 'white', lineHeight: 1.1, marginBottom: '20px', letterSpacing: '-0.02em' }}>
             Encuentra couriers confiables<br />
-            <span style={{ color: '#FCD34D' }}>para enviar a Latinoamérica</span>
+            <span style={{ color: '#F5DC6C' }}>para enviar a Latinoamérica</span>
           </h1>
 
           <p style={{ fontSize: 'clamp(1rem, 2vw, 1.2rem)', color: 'rgba(255,255,255,0.75)', maxWidth: '560px', margin: '0 auto 48px', lineHeight: 1.7 }}>
@@ -123,10 +123,10 @@ export default function HomePage() {
       </section>
 
       {/* ── AFFILIATE / MARKETPLACE ── */}
-      <section className="section" style={{ background: 'linear-gradient(135deg, #0D1B2A, #1B4FD8)' }}>
+      <section className="section" style={{ background: 'linear-gradient(135deg, #0D1B2A, #364CD0)' }}>
         <div className="container" style={{ textAlign: 'center' }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(245,158,11,0.15)', border: '1px solid rgba(245,158,11,0.3)', borderRadius: '20px', padding: '6px 16px', marginBottom: '24px' }}>
-            <span style={{ fontSize: '0.8rem', color: '#FCD34D', fontWeight: 500 }}>🛒 Compra en USA, envía a Latinoamérica</span>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(237,195,29,0.15)', border: '1px solid rgba(237,195,29,0.3)', borderRadius: '20px', padding: '6px 16px', marginBottom: '24px' }}>
+            <span style={{ fontSize: '0.8rem', color: '#F5DC6C', fontWeight: 500 }}>🛒 Compra en USA, envía a Latinoamérica</span>
           </div>
           <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', fontWeight: 800, color: 'white', marginBottom: '12px' }}>
             Compra online y envía con tu courier
@@ -157,7 +157,7 @@ export default function HomePage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
             {BOX_SIZES.map((b, i) => (
               <div key={b.size} style={{ background: 'white', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px', textAlign: 'center' }}>
-                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>{'📦'.repeat(i + 1).slice(0, i + 1)}{['📦','📫','🗃️','📬'][i]}</div>
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>{(['📦','📫','🗃️','📬'] as const)[i]}</div>
                 <div style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--dark)', marginBottom: '4px' }}>{b.size}</div>
                 <div style={{ fontSize: '0.78rem', color: 'var(--brand)', fontWeight: 500, marginBottom: '8px' }}>{b.dimensions}</div>
                 <div style={{ fontSize: '0.78rem', color: 'var(--muted)', marginBottom: '4px' }}>Hasta {b.maxWeight}</div>

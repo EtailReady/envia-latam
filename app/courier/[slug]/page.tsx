@@ -5,7 +5,7 @@ import { getCourierBySlug, getCountry } from '@/lib/data';
 function Stars({ rating }: { rating: number }) {
   return (
     <span>{[1,2,3,4,5].map(i => (
-      <span key={i} style={{ color: i <= Math.round(rating) ? '#F59E0B' : '#D1D5DB', fontSize: '1.1rem' }}>★</span>
+      <span key={i} style={{ color: i <= Math.round(rating) ? '#EDC31D' : '#D1D5DB', fontSize: '1.1rem' }}>★</span>
     ))}</span>
   );
 }
@@ -168,7 +168,7 @@ export default async function CourierPage({ params }: { params: Promise<{ slug: 
                   <div style={{ fontSize: '0.75rem', color: 'var(--muted)', fontWeight: 500, marginBottom: '8px' }}>📦 Acepta de</div>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
                     {courier.services.filter(s => s.toLowerCase().includes('recibe')).map(s => (
-                      <span key={s} style={{ fontSize: '0.72rem', padding: '3px 8px', background: '#FFF7ED', color: '#D97706', border: '1px solid #FDE68A', borderRadius: '6px', fontWeight: 500 }}>{s}</span>
+                      <span key={s} style={{ fontSize: '0.72rem', padding: '3px 8px', background: 'var(--brand-light)', color: 'var(--brand)', border: '1px solid var(--border)', borderRadius: '6px', fontWeight: 500 }}>{s}</span>
                     ))}
                   </div>
                 </div>

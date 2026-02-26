@@ -5,7 +5,7 @@ export default function MarketplacePage() {
   return (
     <>
       {/* Hero */}
-      <section style={{ background: 'linear-gradient(135deg, #0D1B2A, #1B4FD8)', padding: '64px 0 56px' }}>
+      <section style={{ background: 'linear-gradient(135deg, #0D1B2A, #364CD0)', padding: '64px 0 56px' }}>
         <div className="container" style={{ textAlign: 'center' }}>
           <div style={{ fontSize: '3rem', marginBottom: '16px' }}>🛒</div>
           <h1 style={{ fontSize: 'clamp(1.8rem,4vw,2.8rem)', fontWeight: 800, color: 'white', marginBottom: '14px' }}>

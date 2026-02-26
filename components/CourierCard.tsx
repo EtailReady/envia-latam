@@ -5,7 +5,7 @@ function Stars({ rating }: { rating: number }) {
   return (
     <span className="stars">
       {[1,2,3,4,5].map(i => (
-        <span key={i} style={{ color: i <= Math.round(rating) ? '#F59E0B' : '#D1D5DB' }}>★</span>
+        <span key={i} style={{ color: i <= Math.round(rating) ? '#EDC31D' : '#D1D5DB' }}>★</span>
       ))}
     </span>
   );
@@ -16,7 +16,7 @@ export default function CourierCard({ courier }: { courier: Courier }) {
     <Link href={`/courier/${courier.slug}`} className={`courier-card${courier.featured ? ' featured' : ''}`}>
       {/* Featured banner */}
       {courier.featured && (
-        <div style={{ background: 'linear-gradient(90deg, #F59E0B, #D97706)', padding: '5px 14px', fontSize: '0.7rem', fontWeight: 700, color: 'white', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+        <div style={{ background: 'linear-gradient(90deg, #EDC31D, #C9A318)', padding: '5px 14px', fontSize: '0.7rem', fontWeight: 700, color: 'var(--dark)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
           ⭐ Destacado
         </div>
       )}
@@ -74,7 +74,7 @@ export default function CourierCard({ courier }: { courier: Courier }) {
           <div style={{ fontSize: '0.72rem', color: 'var(--muted)', fontWeight: 500, marginBottom: '6px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Sale desde:</div>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
             {courier.fromCities.map(city => (
-              <span key={city} style={{ background: '#EEF3FF', color: 'var(--brand)', borderRadius: '6px', padding: '3px 8px', fontSize: '0.78rem', fontWeight: 500 }}>
+              <span key={city} style={{ background: 'var(--brand-light)', color: 'var(--brand)', borderRadius: '6px', padding: '3px 8px', fontSize: '0.78rem', fontWeight: 500 }}>
                 📍 {city}
               </span>
             ))}

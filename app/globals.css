@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --brand:       #1B4FD8;
-  --brand-dark:  #1240B0;
-  --brand-light: #EEF3FF;
-  --accent:      #F59E0B;
-  --accent-dark: #D97706;
+  --brand:       #364CD0;
+  --brand-dark:  #2A3BA8;
+  --brand-light: #ECEEFF;
+  --accent:      #EDC31D;
+  --accent-dark: #C9A318;
   --dark:        #0D1B2A;
   --body:        #374151;
   --muted:       #6B7280;
   --border:      #E5E7EB;
-  --bg:          #F8FAFF;
+  --bg:          #F7F8FE;
   --white:       #FFFFFF;
   --green:       #059669;
   --green-bg:    #ECFDF5;
@@ -51,7 +51,7 @@ body { background: var(--white); color: var(--dark); font-family: var(--font-int
 .btn-outline:hover { background: var(--brand); color: white; }
 
 /* Stars */
-.stars { color: #F59E0B; font-size: 0.85rem; }
+.stars { color: #EDC31D; font-size: 0.85rem; }
 
 /* Badges */
 .badge-verified {
