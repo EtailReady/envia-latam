@@ -10,9 +10,16 @@ export default function HomePage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section style={{ position: 'relative', padding: '80px 0 100px', overflow: 'hidden', backgroundImage: 'url(https://i.ibb.co/whfHdMzT/barco.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+      <section style={{ position: 'relative', padding: '80px 0 100px', overflow: 'hidden', background: '#0D1B2A' }}>
+        {/* Hero image — rendered at natural size, no upscaling */}
+        <img
+          src="https://i.ibb.co/whfHdMzT/barco.jpg"
+          alt=""
+          aria-hidden="true"
+          style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', minWidth: '2000px', height: '100%', objectFit: 'cover', objectPosition: 'center', pointerEvents: 'none' }}
+        />
         {/* Dark overlay for readability */}
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(13,27,42,0.88) 0%, rgba(54,76,208,0.75) 60%, rgba(42,59,168,0.82) 100%)', pointerEvents: 'none' }}/>
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(13,27,42,0.85) 0%, rgba(54,76,208,0.70) 60%, rgba(42,59,168,0.78) 100%)', pointerEvents: 'none' }}/>
 
         <div className="container" style={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '20px', padding: '6px 16px', marginBottom: '28px' }}>
