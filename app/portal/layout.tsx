@@ -5,11 +5,12 @@ import { usePathname } from 'next/navigation';
 import { UserButton } from '@clerk/nextjs';
 import {
   LayoutDashboard, DollarSign, CalendarDays,
-  User, ExternalLink, ChevronRight, Building2,
+  User, ExternalLink, ChevronRight, Building2, Truck,
 } from 'lucide-react';
 
 const NAV = [
   { href: '/portal/dashboard', label: 'Dashboard',    Icon: LayoutDashboard },
+  { href: '/portal/pickups',   label: 'Pickups',      Icon: Truck           },
   { href: '/portal/rates',     label: 'Mis Tarifas',  Icon: DollarSign      },
   { href: '/portal/jornadas',  label: 'Mis Jornadas', Icon: CalendarDays    },
   { href: '/portal/profile',   label: 'Mi Perfil',    Icon: User            },
