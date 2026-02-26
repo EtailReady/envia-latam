@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+:root {
+  --brand:       #1B4FD8;
+  --brand-dark:  #1240B0;
+  --brand-light: #EEF3FF;
+  --accent:      #F59E0B;
+  --accent-dark: #D97706;
+  --dark:        #0D1B2A;
+  --body:        #374151;
+  --muted:       #6B7280;
+  --border:      #E5E7EB;
+  --bg:          #F8FAFF;
+  --white:       #FFFFFF;
+  --green:       #059669;
+  --green-bg:    #ECFDF5;
+  --red:         #DC2626;
+}
+
+* { box-sizing: border-box; }
+body { background: var(--white); color: var(--dark); font-family: var(--font-inter, 'Inter', sans-serif); }
+
+/* Buttons */
+.btn-primary {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--brand); color: white;
+  padding: 12px 24px; font-size: 0.875rem; font-weight: 600;
+  border-radius: 8px; border: none; cursor: pointer;
+  text-decoration: none; transition: background 0.2s, transform 0.1s;
+  white-space: nowrap;
+}
+.btn-primary:hover { background: var(--brand-dark); transform: translateY(-1px); }
+
+.btn-accent {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--accent); color: white;
+  padding: 12px 24px; font-size: 0.875rem; font-weight: 600;
+  border-radius: 8px; border: none; cursor: pointer;
+  text-decoration: none; transition: background 0.2s;
+  white-space: nowrap;
+}
+.btn-accent:hover { background: var(--accent-dark); }
+
+.btn-outline {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: transparent; color: var(--brand);
+  padding: 10px 20px; font-size: 0.875rem; font-weight: 500;
+  border-radius: 8px; border: 2px solid var(--brand); cursor: pointer;
+  text-decoration: none; transition: all 0.2s;
+}
+.btn-outline:hover { background: var(--brand); color: white; }
+
+/* Stars */
+.stars { color: #F59E0B; font-size: 0.85rem; }
+
+/* Badges */
+.badge-verified {
+  display: inline-flex; align-items: center; gap: 4px;
+  background: var(--green-bg); color: var(--green);
+  font-size: 0.7rem; font-weight: 600; padding: 3px 8px;
+  border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase;
+}
+.badge-featured {
+  display: inline-flex; align-items: center; gap: 4px;
+  background: #FFF7ED; color: var(--accent-dark);
+  font-size: 0.7rem; font-weight: 600; padding: 3px 8px;
+  border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase;
+}
+
+/* Cards */
+.courier-card {
+  background: white; border: 1px solid var(--border);
+  border-radius: 12px; overflow: hidden;
+  transition: box-shadow 0.2s, transform 0.2s;
+  text-decoration: none; color: inherit; display: block;
+}
+.courier-card:hover { box-shadow: 0 8px 32px rgba(27,79,216,0.1); transform: translateY(-2px); }
+.courier-card.featured { border-color: var(--accent); border-width: 2px; }
+
+/* Search bar */
+.search-container {
+  background: white; border-radius: 16px;
+  box-shadow: 0 4px 40px rgba(0,0,0,0.12);
+  overflow: hidden;
+}
+
+/* Section */
+.section { padding: 72px 0; }
+.section-sm { padding: 48px 0; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.5s ease forwards; }
+
+/* Flag emoji sizing */
+.flag { font-size: 1.4rem; line-height: 1; }
+
+/* Rating */
+.rating-num { font-size: 1.1rem; font-weight: 700; color: var(--dark); }
