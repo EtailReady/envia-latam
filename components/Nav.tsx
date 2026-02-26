@@ -38,6 +38,11 @@ export default function Nav() {
             onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}>
             Destinos
           </Link>
+          <Link href="/jornadas" style={{ color: 'var(--body)', textDecoration: 'none', padding: '8px 14px', fontSize: '0.9rem', fontWeight: 500, borderRadius: '8px', display: 'inline-flex', alignItems: 'center', gap: '5px' }}
+            onMouseEnter={e => (e.currentTarget.style.background = 'var(--bg)')}
+            onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}>
+            📅 Jornadas
+          </Link>
           <Link href="/anunciate" className="btn-primary" style={{ marginLeft: '8px', padding: '9px 18px', fontSize: '0.85rem' }}>
             Anuncia tu empresa
           </Link>
@@ -56,6 +61,7 @@ export default function Nav() {
             { href: '/search',      label: 'Buscar Couriers' },
             { href: '/marketplace', label: 'Comprar & Enviar' },
             { href: '/paises',      label: 'Destinos' },
+            { href: '/jornadas',    label: '📅 Jornadas' },
           ].map(l => (
             <Link key={l.href} href={l.href} onClick={() => setOpen(false)} style={{ display: 'block', padding: '12px 0', borderBottom: '1px solid var(--border)', color: 'var(--dark)', textDecoration: 'none', fontWeight: 500 }}>
               {l.label}

@@ -336,6 +336,153 @@ export const COURIERS: Courier[] = [
   },
 ];
 
+// ─── Jornadas ────────────────────────────────────────────────────────────────
+export type Jornada = {
+  id: string;
+  courierSlug: string;
+  courierName: string;
+  city: string;
+  state: string;
+  address: string;
+  date: string;       // YYYY-MM-DD
+  timeStart: string;  // '9:00 AM'
+  timeEnd: string;    // '3:00 PM'
+  spotsLeft?: number;
+  notes?: string;
+};
+
+export const JORNADAS: Jornada[] = [
+  {
+    id: 'j1',
+    courierSlug: 'cargo-express-miami',
+    courierName: 'Cargo Express Miami',
+    city: 'Miami', state: 'FL',
+    address: '8350 NW 52nd Terrace, Miami, FL 33166',
+    date: '2026-03-01',
+    timeStart: '9:00 AM', timeEnd: '4:00 PM',
+    spotsLeft: 12,
+    notes: 'Jornada mensual. Se aceptan cajas hasta 100 lbs.',
+  },
+  {
+    id: 'j2',
+    courierSlug: 'expreso-caribe',
+    courierName: 'Expreso Caribe',
+    city: 'Orlando', state: 'FL',
+    address: '5401 S Kirkman Rd, Orlando, FL 32819',
+    date: '2026-03-01',
+    timeStart: '10:00 AM', timeEnd: '5:00 PM',
+    spotsLeft: 8,
+    notes: 'Jornada especial para Venezuela y Rep. Dominicana.',
+  },
+  {
+    id: 'j3',
+    courierSlug: 'latam-cargo-houston',
+    courierName: 'Latam Cargo Houston',
+    city: 'Houston', state: 'TX',
+    address: '5900 Westheimer Rd, Houston, TX 77057',
+    date: '2026-03-07',
+    timeStart: '8:00 AM', timeEnd: '3:00 PM',
+    spotsLeft: 20,
+    notes: 'Envíos a México y Venezuela. Acepta vehículos y maquinaria.',
+  },
+  {
+    id: 'j4',
+    courierSlug: 'envios-directos-usa',
+    courierName: 'Envíos Directos USA',
+    city: 'New York', state: 'NY',
+    address: '1450 SW 8th St, New York, NY 10001',
+    date: '2026-03-07',
+    timeStart: '9:00 AM', timeEnd: '2:00 PM',
+    spotsLeft: 5,
+    notes: 'Cupos limitados. Venezuela, Colombia y Ecuador.',
+  },
+  {
+    id: 'j5',
+    courierSlug: 'cargo-express-miami',
+    courierName: 'Cargo Express Miami',
+    city: 'Orlando', state: 'FL',
+    address: '4200 Millenia Blvd, Orlando, FL 32839',
+    date: '2026-03-08',
+    timeStart: '10:00 AM', timeEnd: '4:00 PM',
+    spotsLeft: 15,
+  },
+  {
+    id: 'j6',
+    courierSlug: 'global-pack-ny',
+    courierName: 'Global Pack NY',
+    city: 'Boston', state: 'MA',
+    address: '89-31 161st St, Boston, MA 02101',
+    date: '2026-03-14',
+    timeStart: '9:00 AM', timeEnd: '3:00 PM',
+    spotsLeft: 10,
+    notes: 'España, Venezuela y Colombia.',
+  },
+  {
+    id: 'j7',
+    courierSlug: 'expreso-caribe',
+    courierName: 'Expreso Caribe',
+    city: 'Atlanta', state: 'GA',
+    address: '3401 N Miami Ave, Atlanta, GA 30301',
+    date: '2026-03-14',
+    timeStart: '8:30 AM', timeEnd: '2:30 PM',
+    spotsLeft: 18,
+    notes: 'Solo Venezuela y Rep. Dominicana.',
+  },
+  {
+    id: 'j8',
+    courierSlug: 'carga-sur-america',
+    courierName: 'Carga Sur América',
+    city: 'Miami', state: 'FL',
+    address: '801 Brickell Ave, Miami, FL 33131',
+    date: '2026-03-15',
+    timeStart: '10:00 AM', timeEnd: '5:00 PM',
+    spotsLeft: 22,
+    notes: 'Especialidad: Argentina, Chile, Uruguay y Brasil.',
+  },
+  {
+    id: 'j9',
+    courierSlug: 'latam-cargo-houston',
+    courierName: 'Latam Cargo Houston',
+    city: 'Dallas', state: 'TX',
+    address: '2000 N Lamar St, Dallas, TX 75202',
+    date: '2026-03-21',
+    timeStart: '9:00 AM', timeEnd: '4:00 PM',
+    spotsLeft: 14,
+  },
+  {
+    id: 'j10',
+    courierSlug: 'cargo-express-miami',
+    courierName: 'Cargo Express Miami',
+    city: 'Miami', state: 'FL',
+    address: '8350 NW 52nd Terrace, Miami, FL 33166',
+    date: '2026-03-29',
+    timeStart: '9:00 AM', timeEnd: '4:00 PM',
+    spotsLeft: 20,
+    notes: 'Jornada fin de mes. Gran capacidad disponible.',
+  },
+  {
+    id: 'j11',
+    courierSlug: 'envios-directos-usa',
+    courierName: 'Envíos Directos USA',
+    city: 'Miami', state: 'FL',
+    address: '1450 SW 8th St, Miami, FL 33135',
+    date: '2026-04-04',
+    timeStart: '8:00 AM', timeEnd: '3:00 PM',
+    spotsLeft: 16,
+    notes: 'Primera jornada de abril. Venezuela, Ecuador y Perú.',
+  },
+  {
+    id: 'j12',
+    courierSlug: 'expreso-caribe',
+    courierName: 'Expreso Caribe',
+    city: 'Houston', state: 'TX',
+    address: '5900 Westheimer Rd, Houston, TX 77057',
+    date: '2026-04-05',
+    timeStart: '10:00 AM', timeEnd: '5:00 PM',
+    spotsLeft: 9,
+  },
+];
+
 export const BOX_SIZES = [
   { size: 'Small',   dimensions: '12" × 9" × 4"',  maxWeight: '10 lbs',  example: 'Ropa, libros, accesorios' },
   { size: 'Medium',  dimensions: '16" × 12" × 8"', maxWeight: '25 lbs',  example: 'Zapatos, electrodomésticos pequeños' },
