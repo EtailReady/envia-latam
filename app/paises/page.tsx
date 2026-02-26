@@ -1,23 +1,30 @@
 import Link from 'next/link';
+import { Globe, Landmark, Mountain } from 'lucide-react';
 import { COUNTRIES, Country } from '@/lib/data';
 
 const REGIONS = [
   {
     key: 'latam' as const,
     label: 'América Latina',
-    emoji: '🌎',
+    Icon: Globe,
+    iconColor: '#1B4FD8',
+    iconBg: '#EFF6FF',
     description: 'Envíos a toda Latinoamérica y el Caribe',
   },
   {
     key: 'europa' as const,
     label: 'Europa',
-    emoji: '🌍',
+    Icon: Landmark,
+    iconColor: '#7C3AED',
+    iconBg: '#F5F3FF',
     description: 'Enviamos a los principales destinos europeos',
   },
   {
     key: 'asia' as const,
     label: 'Asia y Medio Oriente',
-    emoji: '🌏',
+    Icon: Mountain,
+    iconColor: '#B45309',
+    iconBg: '#FFFBEB',
     description: 'Cobertura en los principales mercados asiáticos',
   },
 ];
@@ -36,7 +43,6 @@ function CountryCard({ c }: { c: Country }) {
         background: '#1a1a2e',
       }}
     >
-      {/* Background photo */}
       <img
         src={c.photo}
         alt={c.nameEs}
@@ -50,8 +56,6 @@ function CountryCard({ c }: { c: Country }) {
         }}
         className="country-img"
       />
-
-      {/* Dark overlay */}
       <div
         style={{
           position: 'absolute',
@@ -61,26 +65,12 @@ function CountryCard({ c }: { c: Country }) {
         }}
         className="country-overlay"
       />
-
-      {/* Content */}
-      <div
-        style={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          right: 0,
-          padding: '16px',
-        }}
-      >
-        <div style={{ fontSize: '1.4rem', marginBottom: '2px' }}>{c.flag}</div>
-        <div
-          style={{
-            color: 'white',
-            fontWeight: 800,
-            fontSize: '0.95rem',
-            textShadow: '0 1px 4px rgba(0,0,0,0.5)',
-          }}
-        >
+      <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '16px' }}>
+        <span
+          className={`fi fi-${c.code}`}
+          style={{ width: '20px', height: '14px', borderRadius: '3px', display: 'block', marginBottom: '6px' }}
+        />
+        <div style={{ color: 'white', fontWeight: 800, fontSize: '0.92rem', textShadow: '0 1px 4px rgba(0,0,0,0.5)' }}>
           {c.nameEs}
         </div>
       </div>
@@ -107,23 +97,15 @@ export default function PaisesPage() {
             style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '8px',
+              gap: '10px',
               background: 'rgba(255,255,255,0.12)',
-              padding: '6px 16px',
+              padding: '8px 18px',
               borderRadius: '20px',
-              marginBottom: '18px',
+              marginBottom: '20px',
             }}
           >
-            <span style={{ fontSize: '1rem' }}>🌎🌍🌏</span>
-            <span
-              style={{
-                fontSize: '0.78rem',
-                fontWeight: 700,
-                color: 'rgba(255,255,255,0.85)',
-                textTransform: 'uppercase',
-                letterSpacing: '0.1em',
-              }}
-            >
+            <Globe size={15} color="rgba(255,255,255,0.85)" strokeWidth={2} />
+            <span style={{ fontSize: '0.78rem', fontWeight: 700, color: 'rgba(255,255,255,0.85)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
               {total} países disponibles
             </span>
           </div>
@@ -147,8 +129,7 @@ export default function PaisesPage() {
               lineHeight: 1.65,
             }}
           >
-            Cubrimos América Latina, Europa y Asia. Selecciona un país para
-            ver los couriers disponibles.
+            Cubrimos América Latina, Europa y Asia. Selecciona un país para ver los couriers disponibles.
           </p>
         </div>
       </section>
@@ -159,64 +140,49 @@ export default function PaisesPage() {
           {REGIONS.map((region) => {
             const countries = byRegion(region.key);
             if (countries.length === 0) return null;
+            const { Icon } = region;
             return (
               <div key={region.key} style={{ marginBottom: '60px' }}>
                 {/* Region header */}
                 <div
                   style={{
                     display: 'flex',
-                    alignItems: 'flex-end',
-                    gap: '16px',
+                    alignItems: 'center',
+                    gap: '14px',
                     marginBottom: '24px',
                     paddingBottom: '16px',
                     borderBottom: '2px solid var(--border)',
                   }}
                 >
-                  <div>
-                    <div
-                      style={{
-                        fontSize: '0.72rem',
-                        fontWeight: 700,
-                        color: 'var(--brand)',
-                        textTransform: 'uppercase',
-                        letterSpacing: '0.12em',
-                        marginBottom: '4px',
-                      }}
-                    >
-                      Región
+                  <div
+                    style={{
+                      width: '42px',
+                      height: '42px',
+                      borderRadius: '12px',
+                      background: region.iconBg,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      flexShrink: 0,
+                    }}
+                  >
+                    <Icon size={20} color={region.iconColor} strokeWidth={1.75} />
+                  </div>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ fontSize: '0.68rem', fontWeight: 700, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: '2px' }}>
+                      Continente
                     </div>
-                    <h2
-                      style={{
-                        fontSize: 'clamp(1.3rem, 2.5vw, 1.8rem)',
-                        fontWeight: 900,
-                        color: 'var(--dark)',
-                        margin: 0,
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '10px',
-                      }}
-                    >
-                      <span>{region.emoji}</span> {region.label}
+                    <h2 style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.5rem)', fontWeight: 900, color: 'var(--dark)', margin: 0 }}>
+                      {region.label}
                     </h2>
-                    <p
-                      style={{
-                        color: 'var(--muted)',
-                        fontSize: '0.85rem',
-                        margin: '4px 0 0',
-                      }}
-                    >
-                      {region.description}
-                    </p>
                   </div>
                   <span
                     style={{
-                      marginLeft: 'auto',
                       flexShrink: 0,
                       fontSize: '0.78rem',
                       fontWeight: 700,
-                      color: 'var(--muted)',
-                      background: 'var(--bg)',
-                      border: '1px solid var(--border)',
+                      color: region.iconColor,
+                      background: region.iconBg,
                       padding: '4px 12px',
                       borderRadius: '20px',
                     }}
@@ -226,13 +192,7 @@ export default function PaisesPage() {
                 </div>
 
                 {/* Cards grid */}
-                <div
-                  style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))',
-                    gap: '14px',
-                  }}
-                >
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '14px' }}>
                   {countries.map((c) => (
                     <CountryCard key={c.code} c={c} />
                   ))}

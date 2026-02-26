@@ -2,7 +2,7 @@ import Link from 'next/link';
 import SearchBar from '@/components/SearchBar';
 import CourierCard from '@/components/CourierCard';
 import { getFeaturedCouriers, COUNTRIES, BOX_SIZES, AFFILIATES } from '@/lib/data';
-import { Plane, BadgeCheck, Star, Package, ShieldCheck, Search, Phone, Home, ShoppingCart, ShoppingBag, PackagePlus, PackageCheck, Boxes } from 'lucide-react';
+import { Plane, BadgeCheck, Star, Package, ShieldCheck, Search, Phone, Home, ShoppingCart, ShoppingBag, Globe, Landmark, Mountain, PackagePlus, PackageCheck, Boxes } from 'lucide-react';
 
 export default function HomePage() {
   const featured = getFeaturedCouriers();
@@ -92,16 +92,19 @@ export default function HomePage() {
           </div>
 
           {([
-            { key: 'latam',  label: 'América Latina', emoji: '🌎' },
-            { key: 'europa', label: 'Europa',          emoji: '🌍' },
-            { key: 'asia',   label: 'Asia y Medio Oriente', emoji: '🌏' },
+            { key: 'latam',  label: 'América Latina',      Icon: Globe,    iconColor: '#1B4FD8', iconBg: '#EFF6FF' },
+            { key: 'europa', label: 'Europa',               Icon: Landmark, iconColor: '#7C3AED', iconBg: '#F5F3FF' },
+            { key: 'asia',   label: 'Asia y Medio Oriente', Icon: Mountain, iconColor: '#B45309', iconBg: '#FFFBEB' },
           ] as const).map(region => {
             const regionCountries = COUNTRIES.filter(c => c.region === region.key);
+            const RegionIcon = region.Icon;
             return (
               <div key={region.key} style={{ marginBottom: '48px' }}>
                 {/* Continent divider */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
-                  <span style={{ fontSize: '1.2rem' }}>{region.emoji}</span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px' }}>
+                  <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: region.iconBg, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                    <RegionIcon size={16} color={region.iconColor} strokeWidth={1.75} />
+                  </div>
                   <span style={{ fontSize: '0.88rem', fontWeight: 800, color: 'var(--dark)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>{region.label}</span>
                   <div style={{ flex: 1, height: '1px', background: 'var(--border)' }} />
                   <span style={{ fontSize: '0.72rem', color: 'var(--muted)', fontWeight: 600 }}>{regionCountries.length} países</span>

@@ -3,7 +3,7 @@
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { JORNADAS, Jornada } from '@/lib/data';
-import { CalendarDays, MapPin, Clock, Users, ChevronRight, Building2 } from 'lucide-react';
+import { CalendarDays, MapPin, Clock, Users, ChevronRight, Building2, Pin, Info } from 'lucide-react';
 
 // All unique cities from jornadas data
 const ALL_CITIES = ['Todas las ciudades', ...Array.from(new Set(JORNADAS.map((j) => `${j.city}, ${j.state}`)))];
@@ -21,7 +21,7 @@ function formatDate(dateStr: string): { weekday: string; day: string; month: str
 function SpotsIndicator({ spots }: { spots?: number }) {
   if (spots === undefined) return null;
   const color = spots <= 5 ? '#EF4444' : spots <= 10 ? '#F59E0B' : '#10B981';
-  const label = spots <= 5 ? '🔴 Últimos cupos' : spots <= 10 ? '🟡 Cupos limitados' : '🟢 Cupos disponibles';
+  const label = spots <= 5 ? 'Últimos cupos' : spots <= 10 ? 'Cupos limitados' : 'Cupos disponibles';
   return (
     <span
       style={{
@@ -33,9 +33,10 @@ function SpotsIndicator({ spots }: { spots?: number }) {
         borderRadius: '20px',
         display: 'inline-flex',
         alignItems: 'center',
-        gap: '4px',
+        gap: '6px',
       }}
     >
+      <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: color, flexShrink: 0, display: 'inline-block' }} />
       {label} ({spots})
     </span>
   );
@@ -147,7 +148,8 @@ function JornadaCard({ jornada }: { jornada: Jornada }) {
               lineHeight: 1.55,
             }}
           >
-            📌 {jornada.notes}
+            <Pin size={11} style={{ display: 'inline', marginRight: '5px', verticalAlign: 'middle', flexShrink: 0 }} />
+            {jornada.notes}
           </div>
         )}
 

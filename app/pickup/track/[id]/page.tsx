@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
-import { Truck, CheckCircle, Clock, MapPin, Package, ChevronLeft, AlertCircle } from 'lucide-react';
+import { Truck, CheckCircle, Clock, MapPin, Package, ChevronLeft, AlertCircle, Info } from 'lucide-react';
 import { getCountry } from '@/lib/data';
 
 type PickupData = {
@@ -351,9 +351,12 @@ export default function TrackPage() {
                 fontSize: '0.82rem',
                 color: '#1D4ED8',
                 lineHeight: 1.6,
+                display: 'flex',
+                gap: '8px',
+                alignItems: 'flex-start',
               }}
             >
-              💡 <strong>Nota:</strong> El seguimiento se actualiza cuando el courier confirma cada
+              <Info size={14} style={{ flexShrink: 0, marginTop: '1px' }} /> <strong>Nota:</strong> El seguimiento se actualiza cuando el courier confirma cada
               etapa. Si han pasado 24 horas sin respuesta, comunícate directamente con{' '}
               <strong>{pickup.courierName}</strong>.
             </div>

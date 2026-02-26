@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { X, Truck, CheckCircle, Copy } from 'lucide-react';
+import { X, Truck, CheckCircle, Copy, AlertCircle, Info } from 'lucide-react';
 import { Courier, getCountry } from '@/lib/data';
 
 type PickupData = {
@@ -191,7 +191,7 @@ export default function PickupButton({ courier }: { courier: Courier }) {
                     margin: 0,
                   }}
                 >
-                  {step === 'form' ? '📦 Solicitar Pickup' : '✅ ¡Solicitud enviada!'}
+                  {step === 'form' ? 'Solicitar Pickup' : '¡Solicitud enviada!'}
                 </h2>
               </div>
               <button
@@ -381,9 +381,13 @@ export default function PickupButton({ courier }: { courier: Courier }) {
                     fontSize: '0.8rem',
                     color: '#C2410C',
                     lineHeight: 1.6,
+                    display: 'flex',
+                    gap: '8px',
+                    alignItems: 'flex-start',
                   }}
                 >
-                  📌 El courier te llamará para confirmar la fecha y hora exacta. Este formulario no
+                  <AlertCircle size={13} style={{ flexShrink: 0, marginTop: '1px' }} />
+                  El courier te llamará para confirmar la fecha y hora exacta. Este formulario no
                   garantiza el pickup hasta la confirmación telefónica.
                 </div>
 
@@ -402,7 +406,7 @@ export default function PickupButton({ courier }: { courier: Courier }) {
                     opacity: loading ? 0.7 : 1,
                   }}
                 >
-                  {loading ? 'Enviando solicitud...' : '📦 Enviar solicitud de pickup'}
+                  {loading ? 'Enviando solicitud...' : 'Enviar solicitud de pickup'}
                 </button>
               </form>
             )}
