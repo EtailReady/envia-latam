@@ -46,7 +46,8 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-        </div>
+          </div>{/* /center */}
+        </div>{/* /container */}
       </section>
 
       {/* ── TRUST BAR ── */}
