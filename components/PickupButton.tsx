@@ -121,7 +121,7 @@ export default function PickupButton({ courier }: { courier: Courier }) {
           width: '100%',
           padding: '12px',
           background: 'var(--accent)',
-          color: 'white',
+          color: '#0D1B2A',
           border: 'none',
           borderRadius: '10px',
           fontWeight: 700,
