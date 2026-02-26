@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getCourierBySlug, getCountry, getOfficeCountry } from '@/lib/data';
-import { Building2, MessageCircle, Phone, Globe, Mail, MapPin, Package, Star, ChevronLeft, Plane, Anchor, Lock } from 'lucide-react';
+import { Building2, MessageCircle, Phone, Globe, Mail, MapPin, Package, Star, ChevronLeft, Plane, Anchor, Lock, Check, Navigation } from 'lucide-react';
 import PickupButton from '@/components/PickupButton';
 
 function Stars({ rating }: { rating: number }) {
@@ -34,7 +34,7 @@ export default async function CourierPage({ params }: { params: Promise<{ slug: 
             <div style={{ flex: 1 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap', marginBottom: '6px' }}>
                 <h1 style={{ fontSize: 'clamp(1.4rem, 3vw, 2rem)', fontWeight: 800, color: 'white', margin: 0 }}>{courier.name}</h1>
-                {courier.verified && <span className="badge-verified">✓ Verificado</span>}
+                {courier.verified && <span className="badge-verified" style={{ display: 'inline-flex', alignItems: 'center', gap: '5px' }}><Check size={11} strokeWidth={3} /> Verificado</span>}
                 {courier.featured && <span className="badge-featured" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}><Star size={11} fill="currentColor" strokeWidth={0} /> Destacado</span>}
               </div>
               <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.95rem', marginBottom: '12px' }}>{courier.tagline}</p>
@@ -115,7 +115,7 @@ export default async function CourierPage({ params }: { params: Promise<{ slug: 
                       {usOffices.length > 0 && (
                         <div style={{ background: 'var(--brand-light)', borderRadius: '12px', padding: '16px 18px' }}>
                           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
-                            <span style={{ fontSize: '1.2rem' }}>🇺🇸</span>
+                            <Building2 size={16} color="var(--brand)" strokeWidth={1.75} />
                             <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--brand)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Almacenes en USA</span>
                           </div>
                           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
@@ -131,7 +131,7 @@ export default async function CourierPage({ params }: { params: Promise<{ slug: 
                       {latamOffices.length > 0 && (
                         <div style={{ background: 'var(--bg)', border: '1px solid var(--border)', borderRadius: '12px', padding: '16px 18px' }}>
                           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
-                            <span style={{ fontSize: '1.1rem' }}>📍</span>
+                            <Navigation size={15} color="var(--muted)" strokeWidth={1.75} />
                             <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Entrega en Destino</span>
                           </div>
                           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
@@ -194,8 +194,8 @@ export default async function CourierPage({ params }: { params: Promise<{ slug: 
                 <h2 style={{ fontSize: '1.2rem', fontWeight: 700, color: 'var(--dark)', marginBottom: '16px' }}>Servicios</h2>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
                   {courier.services.map(s => (
-                    <span key={s} style={{ padding: '8px 16px', background: 'var(--brand-light)', color: 'var(--brand)', borderRadius: '8px', fontSize: '0.85rem', fontWeight: 500 }}>
-                      ✓ {s}
+                    <span key={s} style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '8px 16px', background: 'var(--brand-light)', color: 'var(--brand)', borderRadius: '8px', fontSize: '0.85rem', fontWeight: 500 }}>
+                      <Check size={13} strokeWidth={2.5} /> {s}
                     </span>
                   ))}
                 </div>

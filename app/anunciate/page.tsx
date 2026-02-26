@@ -1,3 +1,5 @@
+import { Check } from 'lucide-react';
+
 export default function AnunciatePage() {
   return (
     <>
@@ -24,7 +26,7 @@ export default function AnunciatePage() {
                 <div style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--dark)', marginBottom: '6px' }}>{p.name}</div>
                 <div style={{ fontSize: '1.8rem', fontWeight: 800, color: p.accent ? 'var(--brand)' : 'var(--dark)', marginBottom: '20px' }}>{p.price}</div>
                 <ul style={{ listStyle: 'none', marginBottom: '24px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                  {p.features.map(f => <li key={f} style={{ fontSize: '0.85rem', color: 'var(--body)', display: 'flex', gap: '8px' }}><span style={{ color: 'var(--green)', fontWeight: 700 }}>✓</span> {f}</li>)}
+                  {p.features.map(f => <li key={f} style={{ fontSize: '0.85rem', color: 'var(--body)', display: 'flex', alignItems: 'center', gap: '8px' }}><Check size={13} strokeWidth={2.5} color="var(--green)" style={{ flexShrink: 0 }} /> {f}</li>)}
                 </ul>
                 <button className={p.accent ? 'btn-primary' : 'btn-outline'} style={{ width: '100%' }}>{p.cta}</button>
               </div>
