@@ -54,7 +54,7 @@ export type Courier = {
 
 export const COUNTRIES: Country[] = [
   { code: 've', name: 'Venezuela',          flag: '🇻🇪', nameEs: 'Venezuela',       photo: 'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=600&q=80' },
-  { code: 'co', name: 'Colombia',           flag: '🇨🇴', nameEs: 'Colombia',         photo: 'https://images.unsplash.com/photo-1599413987323-b2b8c0d7d9c8?w=600&q=80' },
+  { code: 'co', name: 'Colombia',           flag: '🇨🇴', nameEs: 'Colombia',         photo: 'https://i.ibb.co/nMBvPnBL/colombia.jpg' },
   { code: 'cl', name: 'Chile',              flag: '🇨🇱', nameEs: 'Chile',            photo: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600&q=80' },
   { code: 'pe', name: 'Peru',               flag: '🇵🇪', nameEs: 'Perú',             photo: 'https://images.unsplash.com/photo-1526392060635-9d6019884377?w=600&q=80' },
   { code: 'do', name: 'Dominican Republic', flag: '🇩🇴', nameEs: 'Rep. Dominicana',  photo: 'https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=600&q=80' },
